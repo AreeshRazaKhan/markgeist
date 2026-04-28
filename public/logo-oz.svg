@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="square">
+  <!-- left baseline rule -->
+  <line x1="20" y1="20" x2="220" y2="20" />
+  <!-- crosshair circle (the "O") -->
+  <circle cx="270" cy="50" r="34" stroke-width="6" />
+  <line x1="270" y1="6" x2="270" y2="94" stroke-width="3" />
+  <line x1="226" y1="50" x2="314" y2="50" stroke-width="3" />
+  <circle cx="270" cy="50" r="3" fill="currentColor" stroke="none" />
+  <!-- the "Z" mark -->
+  <polyline points="320,20 420,20 320,80 420,80" stroke-width="6" />
+  <!-- right baseline rule -->
+  <line x1="430" y1="80" x2="580" y2="80" />
+</svg>

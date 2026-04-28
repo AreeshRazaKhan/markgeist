@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:markgeist.com)",
+      "WebFetch(domain:fonts.googleapis.com)",
+      "WebFetch(domain:fonts.gstatic.com)",
+      "WebFetch(domain:greensock.com)",
+      "WebFetch(domain:gsap.com)",
+      "WebFetch(domain:ui.shadcn.com)",
+      "WebFetch(domain:threejs.org)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(pnpm:*)",
+      "Bash(node:*)"
+    ],
+    "deny": []
+  },
+  "env": {
+    "PROJECT_NAME": "the-oz-frequency",
+    "BRAND_PRIMARY": "#F58220",
+    "DESIGN_SYSTEM": "tactical-bento"
+  }
+}

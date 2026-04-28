@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:markgeist.com)",
+      "Bash(rm \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\markgeist\\\\.claude\\\\rules\\\\design-rules.md\" \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\markgeist\\\\.claude\\\\rules\\\\code-rules.md\")",
+      "Bash(mv \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\markgeist\\\\brand-guide.md\" \"C:\\\\Users\\\\Dev\\\\Documents\\\\GitHub\\\\markgeist\\\\.claude\\\\rules\\\\brand-guide.md\")",
+      "Bash(git clone *)",
+      "Bash(mkdir -p .claude/skills)",
+      "Bash(cp -r /tmp/playwright-skill-temp/skills/playwright-skill .claude/skills/)",
+      "PowerShell(Get-NetTCPConnection *)",
+      "WebFetch(domain:teamneverquit.com)",
+      "WebFetch(domain:shadowwarriorsproject.org)",
+      "WebFetch(domain:podcasts.apple.com)",
+      "WebFetch(domain:open.spotify.com)",
+      "WebFetch(domain:www.youtube.com)",
+      "Bash(git config *)",
+      "Bash(git add *)"
+    ]
+  }
+}
