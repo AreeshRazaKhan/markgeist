@@ -1,104 +1,137 @@
 'use client'
 
-import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import HudTag from '@/components/motion/hud-tag'
-import CornerBrackets from '@/components/motion/corner-brackets'
-import { NAV_LINKS, SOCIAL_LINKS } from '@/constants/nav'
-import { cn } from '@/lib/utils'
-
-const Switch = ({ label, active, onToggle }) => (
-  <button
-    type="button"
-    onClick={onToggle}
-    className="group flex items-center justify-between border border-border bg-surface px-4 py-3 text-left font-mono text-[11px] uppercase tracking-[0.18em] transition-colors hover:border-accent"
-  >
-    <span className={cn(active ? 'text-ink' : 'text-mute')}>{label}</span>
-    <span
-      className={cn(
-        'relative inline-flex h-5 w-9 items-center border transition-colors',
-        active ? 'border-accent bg-accent/10' : 'border-border bg-bg'
-      )}
-    >
-      <span
-        className={cn(
-          'absolute top-1/2 h-3 w-3 -translate-y-1/2 transition-all',
-          active ? 'left-[20px] bg-accent' : 'left-1 bg-mute'
-        )}
-      />
-    </span>
-  </button>
-)
+import RGBSplit from '@/components/motion/rgb-split'
+import { MISSION_LINKS, NAV_LINKS, SOCIAL_LINKS, SUBSCRIBE_LINKS } from '@/constants/nav'
+import { LATEST_EPISODE } from '@/constants/episodes'
 
 const TailCall = () => {
-  const [signals, setSignals] = useState({ live: true, beacon: true, encrypt: false })
-
   return (
-    <footer className="relative border-t border-border bg-bg">
-      <div className="container-x grid grid-cols-12 gap-6 py-16">
-        <div className="col-span-12 lg:col-span-5">
-          <div className="relative h-32 w-full border border-border bg-surface p-4">
-            <CornerBrackets color="accent" />
-            <div className="absolute inset-0 grid-bg opacity-30" />
-            <div className="relative flex h-full flex-col justify-between">
-              <HudTag color="hud">COCKPIT · 101.3 MHZ</HudTag>
-              <div className="flex items-center gap-3">
-                <span className="relative flex h-2 w-2">
-                  <span className={cn('absolute inline-flex h-full w-full opacity-75', signals.live ? 'animate-ping bg-live' : 'bg-mute')} />
-                  <span className={cn('relative inline-flex h-2 w-2', signals.live ? 'bg-live' : 'bg-mute')} />
-                </span>
-                <span className="font-display text-3xl uppercase tracking-display text-ink">
-                  OZ FREQUENCY
-                </span>
-              </div>
-            </div>
-          </div>
+    <footer className="relative overflow-hidden border-t border-border bg-bg">
+      {/* Giant overflowing wordmark — full bleed */}
+      <div className="full-bleed relative pt-20 lg:pt-24">
+        <RGBSplit
+          as="h2"
+          aria-hidden
+          offset={18}
+          className="display-xl whitespace-nowrap text-center text-ink"
+          style={{ fontSize: 'clamp(88px, 16vw, 280px)', lineHeight: 0.86, letterSpacing: '-0.03em' }}
+        >
+          ON THE <span className="italic text-accent">RECORD.</span>
+        </RGBSplit>
+      </div>
 
-          <p className="mt-6 max-w-sm text-sm text-mute">
-            Transmissions originate from a fortified position somewhere in Colorado. Coordinates withheld.
+      <div className="container-x py-16 lg:py-20">
+        {/* Tactical sign-off */}
+        <div className="mb-16 flex flex-col items-center gap-4 text-center">
+          <HudTag color="accent">EOF · STATIC OUT</HudTag>
+          <p className="font-display text-3xl uppercase leading-tight tracking-display text-ink lg:text-5xl">
+            THANKS FOR LISTENING.
+            <span className="block italic text-accent">TALK SOON.</span>
+          </p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-mute">
+            &mdash; Mark &ldquo;Oz&rdquo; Geist · Recording from Colorado
           </p>
         </div>
 
-        <div className="col-span-12 lg:col-span-3">
-          <HudTag color="accent">CHANNELS</HudTag>
-          <ul className="mt-4 space-y-2">
-            {NAV_LINKS.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className="font-mono text-xs uppercase tracking-[0.18em] text-ink hover:text-accent">
-                  {l.label} →
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="col-span-12 lg:col-span-4">
-          <HudTag color="accent">SIGNAL CONTROL</HudTag>
-          <div className="mt-4 grid gap-2">
-            <Switch label="LIVE INDICATOR" active={signals.live} onToggle={() => setSignals((s) => ({ ...s, live: !s.live }))} />
-            <Switch label="BEACON" active={signals.beacon} onToggle={() => setSignals((s) => ({ ...s, beacon: !s.beacon }))} />
-            <Switch label="ENCRYPT" active={signals.encrypt} onToggle={() => setSignals((s) => ({ ...s, encrypt: !s.encrypt }))} />
+        <div className="grid grid-cols-12 gap-8 border-t border-border pt-12 lg:gap-12">
+          {/* Brand block */}
+          <div className="col-span-12 lg:col-span-4">
+            <Image
+              src="/mark-geist-logo.png"
+              alt="Mark Geist"
+              width={1500}
+              height={135}
+              className="h-10 w-auto"
+            />
+            <p className="mt-6 max-w-sm text-sm text-mute">
+              Marine. Annex Security Team. Co-author of <em className="not-italic underline decoration-accent">13 Hours</em>.
+              Co-founder of Shadow Warriors Project.
+            </p>
+            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-mute">
+              Latest · {LATEST_EPISODE.number} · {LATEST_EPISODE.duration}
+            </p>
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            {SOCIAL_LINKS.map((s) => (
-              <Link
-                key={s.href}
-                href={s.href}
-                className="border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-mute hover:border-accent hover:text-accent"
-              >
-                {s.label}
-              </Link>
-            ))}
+          {/* Site nav */}
+          <div className="col-span-6 lg:col-span-2">
+            <HudTag color="accent">Pages</HudTag>
+            <ul className="mt-4 space-y-2">
+              {NAV_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="font-mono text-xs uppercase tracking-[0.18em] text-ink hover:text-accent">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* External / mission links */}
+          <div className="col-span-6 lg:col-span-3">
+            <HudTag color="accent">External</HudTag>
+            <ul className="mt-4 space-y-2">
+              {MISSION_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-mono text-xs uppercase tracking-[0.18em] text-ink hover:text-accent"
+                  >
+                    {l.label} ↗
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Subscribe + social */}
+          <div className="col-span-12 lg:col-span-3">
+            <HudTag color="accent">Listen</HudTag>
+            <ul className="mt-4 space-y-2">
+              {SUBSCRIBE_LINKS.map((l) => (
+                <li key={l.label}>
+                  <Link
+                    href={l.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-mono text-xs uppercase tracking-[0.18em] text-ink hover:text-accent"
+                  >
+                    {l.label} →
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8">
+              <HudTag color="mute">Social</HudTag>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {SOCIAL_LINKS.map((s) => (
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="border border-border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-mute hover:border-accent hover:text-accent"
+                  >
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
+      {/* Colophon */}
       <div className="border-t border-border">
         <div className="container-x flex flex-wrap items-center justify-between gap-4 py-6">
-          <HudTag>EOF · CLIENT RESPONSE LLC · 2026</HudTag>
-          <HudTag color="hud">PRIVACY · STATIC OUT</HudTag>
+          <HudTag color="mute">© 2026 Client Response LLC · All rights reserved</HudTag>
+          <HudTag color="mute">Privacy · Static Out</HudTag>
         </div>
       </div>
     </footer>

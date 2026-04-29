@@ -11,7 +11,7 @@ const Error = ({ error, reset }) => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-6">
       <p className="font-mono text-xs uppercase tracking-widest text-destructive">
-        {'// signal lost'}
+        {'// audio cut out'}
       </p>
       <h2 className="text-2xl font-semibold">Something went wrong</h2>
       <button

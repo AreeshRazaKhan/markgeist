@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>THE OZ FREQUENCY — Mark "Oz" Geist Podcast</title>
+<meta name="description" content="The OZ Frequency. Stories of valor, leadership and the truth behind the headlines. Hosted by Mark 'Oz' Geist — Benghazi survivor, Marine, author of 13 Hours." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   THE OZ FREQUENCY — BRUTAL TACTICAL BENTO
+   ============================================ */
+
+:root{
+  --orange:#F58220;
+  --ember:#FF9A3C;
+  --black:#0A0A0A;
+  --gunmetal:#141414;
+  --steel:#1F1F1F;
+  --concrete:#2A2A2A;
+  --bone:#F5F1E8;
+  --smoke:#8C8C8C;
+  --live:#E53935;
+  --olive:#4A5D23;
+
+  --f-display:'Anton', 'Bebas Neue', sans-serif;
+  --f-sub:'Bebas Neue', sans-serif;
+  --f-body:'Space Grotesk', sans-serif;
+  --f-mono:'JetBrains Mono', monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);
+  color:var(--bone);
+  font-family:var(--f-body);
+  font-size:16px;
+  line-height:1.55;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+/* Scanline noise overlay */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.012) 50%, transparent 50%);
+  background-size:100% 3px;
+  pointer-events:none;
+  z-index:9999;
+  mix-blend-mode:overlay;
+}
+
+/* Dot grid bg */
+.dot-grid{
+  position:fixed; inset:0;
+  background-image:radial-gradient(rgba(245,130,32,0.08) 1px, transparent 1px);
+  background-size:32px 32px;
+  pointer-events:none;
+  z-index:0;
+  mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+/* ===== NAV ===== */
+.nav{
+  position:fixed; top:0; left:0; right:0;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 40px;
+  z-index:100;
+  background:rgba(10,10,10,0.7);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--concrete);
+}
+.brand{
+  display:flex; align-items:center; gap:14px;
+  font-family:var(--f-display);
+  font-size:28px; letter-spacing:0.08em;
+}
+.brand .reticle{
+  width:32px; height:32px;
+  border:2px solid var(--orange);
+  border-radius:50%;
+  position:relative;
+  flex-shrink:0;
+}
+.brand .reticle::before,
+.brand .reticle::after{
+  content:""; position:absolute; background:var(--orange);
+}
+.brand .reticle::before{ left:-8px; right:-8px; top:50%; height:2px; transform:translateY(-50%)}
+.brand .reticle::after{ top:-8px; bottom:-8px; left:50%; width:2px; transform:translateX(-50%)}
+.brand span.frq{ color:var(--orange) }
+
+.nav ul{ display:flex; gap:36px; list-style:none; font-family:var(--f-mono); font-size:12px; letter-spacing:0.18em; text-transform:uppercase}
+.nav ul a{ position:relative; padding:6px 0; transition:color .25s }
+.nav ul a:hover{ color:var(--orange) }
+.nav ul a::after{
+  content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--orange);
+  transition:width .25s ease;
+}
+.nav ul a:hover::after{ width:100% }
+
+.nav .cta{
+  font-family:var(--f-mono);
+  font-size:12px; letter-spacing:0.18em; text-transform:uppercase;
+  padding:10px 20px; border:1px solid var(--orange);
+  background:var(--orange); color:var(--black);
+  font-weight:700;
+  transition:all .2s;
+}
+.nav .cta:hover{ background:transparent; color:var(--orange) }
+
+.menu-toggle{ display:none }
+
+/* ===== TICKER ===== */
+.ticker{
+  position:fixed; top:78px; left:0; right:0;
+  background:var(--orange); color:var(--black);
+  font-family:var(--f-mono); font-weight:700;
+  font-size:11px; letter-spacing:0.22em; text-transform:uppercase;
+  padding:8px 0; overflow:hidden; white-space:nowrap;
+  z-index:99;
+  border-bottom:2px solid var(--black);
+}
+.ticker-track{ display:inline-flex; gap:40px; animation:tick 38s linear infinite; padding-left:100% }
+.ticker-track span{ display:inline-flex; align-items:center; gap:14px }
+.ticker-track i{ width:6px; height:6px; background:var(--black); border-radius:50%; display:inline-block }
+@keyframes tick{ to{ transform:translateX(-100%) } }
+
+/* ===== MAIN BENTO ===== */
+main{ position:relative; z-index:2; padding:140px 24px 24px }
+
+.bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:minmax(80px,auto);
+  gap:14px;
+  max-width:1480px; margin:0 auto;
+}
+
+.cell{
+  background:var(--gunmetal);
+  border:1px solid var(--concrete);
+  padding:24px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .3s, background .3s;
+}
+.cell:hover{ border-color:var(--orange); transform:translateY(-3px) }
+
+/* Corner crosshair markers on each cell */
+.cell::before,
+.cell::after{
+  content:""; position:absolute; width:10px; height:10px;
+  border:1px solid var(--smoke); opacity:.35;
+  transition:opacity .3s, border-color .3s;
+}
+.cell::before{ top:8px; left:8px; border-right:0; border-bottom:0 }
+.cell::after{ bottom:8px; right:8px; border-left:0; border-top:0 }
+.cell:hover::before, .cell:hover::after{ border-color:var(--orange); opacity:1 }
+
+.tag{
+  font-family:var(--f-mono);
+  font-size:10px; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--smoke);
+  display:inline-flex; align-items:center; gap:8px;
+  margin-bottom:18px;
+}
+.tag::before{ content:"//"; color:var(--orange) }
+
+/* === HERO TITLE CELL === */
+.c-hero{
+  grid-column:span 8; grid-row:span 4;
+  background:
+    radial-gradient(circle at 85% 25%, rgba(245,130,32,0.18), transparent 50%),
+    linear-gradient(135deg, var(--gunmetal) 0%, var(--steel) 100%);
+  display:flex; flex-direction:column; justify-content:space-between;
+  min-height:520px;
+  padding:48px;
+}
+.c-hero h1{
+  font-family:var(--f-display);
+  font-size:clamp(64px, 11vw, 200px);
+  line-height:0.85; letter-spacing:-0.01em;
+  text-transform:uppercase;
+}
+.c-hero h1 .accent{ color:var(--orange); position:relative }
+.c-hero h1 .accent::after{
+  content:""; position:absolute; left:0; right:0; bottom:8%;
+  height:14%; background:rgba(245,130,32,0.18);
+  z-index:-1;
+}
+.c-hero .tag-line{
+  font-family:var(--f-body);
+  font-size:18px; max-width:520px; color:var(--bone);
+  opacity:.85; line-height:1.5;
+}
+.c-hero .meta-row{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  gap:24px; flex-wrap:wrap;
+  border-top:1px solid var(--concrete); padding-top:24px;
+}
+.c-hero .coord{
+  font-family:var(--f-mono); font-size:12px;
+  color:var(--smoke); letter-spacing:0.12em;
+}
+.c-hero .coord b{ color:var(--orange); font-weight:500 }
+.c-hero .play-cta{
+  display:inline-flex; align-items:center; gap:14px;
+  background:var(--orange); color:var(--black);
+  padding:18px 28px; font-family:var(--f-sub); font-size:18px;
+  letter-spacing:0.16em; text-transform:uppercase; font-weight:700;
+  transition:all .2s;
+}
+.c-hero .play-cta:hover{ background:var(--bone) }
+.c-hero .play-cta .arrow{ transition:transform .25s }
+.c-hero .play-cta:hover .arrow{ transform:translateX(6px) }
+
+/* big background reticle */
+.c-hero .bg-reticle{
+  position:absolute; right:-80px; top:50%; transform:translateY(-50%);
+  width:520px; height:520px;
+  border:1px solid rgba(245,130,32,0.18); border-radius:50%;
+  pointer-events:none;
+}
+.c-hero .bg-reticle::before, .c-hero .bg-reticle::after{
+  content:""; position:absolute; background:rgba(245,130,32,0.18);
+}
+.c-hero .bg-reticle::before{ left:-40px; right:-40px; top:50%; height:1px }
+.c-hero .bg-reticle::after{ top:-40px; bottom:-40px; left:50%; width:1px }
+.c-hero .bg-reticle .inner{
+  position:absolute; inset:30%; border:1px solid rgba(245,130,32,0.3);
+  border-radius:50%;
+}
+
+/* === LIVE CELL === */
+.c-live{
+  grid-column:span 4; grid-row:span 2;
+  background:linear-gradient(135deg, #1A0808 0%, var(--gunmetal) 100%);
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.c-live .live-row{ display:flex; align-items:center; gap:12px; margin-bottom:12px }
+.c-live .dot{
+  width:12px; height:12px; border-radius:50%; background:var(--live);
+  box-shadow:0 0 0 0 rgba(229,57,53,0.7);
+  animation:pulse 1.6s infinite;
+}
+@keyframes pulse{
+  0%{ box-shadow:0 0 0 0 rgba(229,57,53,0.6) }
+  70%{ box-shadow:0 0 0 18px rgba(229,57,53,0) }
+  100%{ box-shadow:0 0 0 0 rgba(229,57,53,0) }
+}
+.c-live h3{
+  font-family:var(--f-display); font-size:54px; line-height:.95;
+  letter-spacing:0.02em;
+}
+.c-live .listeners{
+  font-family:var(--f-mono); font-size:13px; color:var(--smoke);
+  margin-top:8px;
+}
+.c-live .listeners b{ color:var(--bone); font-size:22px; font-weight:700 }
+
+/* === NOW PLAYING === */
+.c-playing{
+  grid-column:span 4; grid-row:span 2;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.c-playing .ep-no{
+  font-family:var(--f-mono); font-size:11px; color:var(--orange);
+  letter-spacing:0.22em; text-transform:uppercase;
+}
+.c-playing h4{
+  font-family:var(--f-sub); font-size:24px; line-height:1.1;
+  margin-top:6px; letter-spacing:0.04em;
+}
+.c-playing .wave{
+  display:flex; align-items:flex-end; gap:3px; height:36px; margin:14px 0;
+}
+.c-playing .wave i{
+  flex:1; background:var(--orange); display:block;
+  animation:wave 1.4s ease-in-out infinite;
+  border-radius:1px;
+}
+@keyframes wave{
+  0%,100%{ height:20% }
+  50%{ height:100% }
+}
+.c-playing .wave i:nth-child(2n){ animation-delay:.15s }
+.c-playing .wave i:nth-child(3n){ animation-delay:.3s }
+.c-playing .wave i:nth-child(5n){ animation-delay:.45s }
+.c-playing .controls{
+  display:flex; align-items:center; justify-content:space-between;
+  font-family:var(--f-mono); font-size:11px; color:var(--smoke);
+}
+.c-playing .play-btn{
+  width:42px; height:42px; border-radius:50%;
+  background:var(--orange); color:var(--black);
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:14px; transition:transform .2s;
+}
+.c-playing .play-btn:hover{ transform:scale(1.1) }
+
+/* === COUNT CELL === */
+.c-count{
+  grid-column:span 3; grid-row:span 3;
+  display:flex; flex-direction:column; justify-content:space-between;
+  background:var(--orange); color:var(--black);
+  border-color:var(--orange);
+}
+.c-count::before,.c-count::after{ border-color:var(--black); opacity:.5 }
+.c-count .tag{ color:var(--black); opacity:.8 }
+.c-count .tag::before{ color:var(--black) }
+.c-count .num{
+  font-family:var(--f-display);
+  font-size:clamp(96px, 14vw, 220px);
+  line-height:0.8; letter-spacing:-0.04em;
+}
+.c-count .label{
+  font-family:var(--f-sub); font-size:18px; letter-spacing:0.18em;
+  text-transform:uppercase; line-height:1.2;
+}
+.c-count .arr{
+  font-family:var(--f-mono); font-size:11px; opacity:.7;
+  margin-top:auto;
+}
+
+/* === SUBSCRIBE CELL === */
+.c-subscribe{
+  grid-column:span 5; grid-row:span 3;
+  display:flex; flex-direction:column;
+}
+.c-subscribe h3{
+  font-family:var(--f-display); font-size:48px; line-height:.95;
+  text-transform:uppercase; margin-bottom:6px;
+}
+.c-subscribe p{ color:var(--smoke); font-size:14px; margin-bottom:24px; max-width:340px }
+.platforms{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:auto;
+}
+.platforms a{
+  display:flex; align-items:center; gap:12px;
+  background:var(--steel); border:1px solid var(--concrete);
+  padding:14px 16px; font-family:var(--f-mono); font-size:12px;
+  letter-spacing:0.14em; text-transform:uppercase;
+  transition:all .25s;
+}
+.platforms a:hover{ background:var(--orange); color:var(--black); border-color:var(--orange) }
+.platforms .ico{
+  width:22px; height:22px; flex-shrink:0;
+  background:var(--orange); border-radius:50%;
+  display:inline-flex; align-items:center; justify-content:center;
+  color:var(--black); font-size:12px; font-weight:700;
+  transition:background .25s;
+}
+.platforms a:hover .ico{ background:var(--black); color:var(--orange) }
+
+/* === MISSION QUOTE === */
+.c-mission{
+  grid-column:span 4; grid-row:span 3;
+  background:
+    linear-gradient(135deg, rgba(245,130,32,0.06), transparent 60%),
+    var(--gunmetal);
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.c-mission blockquote{
+  font-family:var(--f-display); font-size:34px; line-height:1.05;
+  text-transform:uppercase; letter-spacing:0.005em;
+}
+.c-mission blockquote span{ color:var(--orange) }
+.c-mission cite{
+  font-family:var(--f-mono); font-size:11px; color:var(--smoke);
+  letter-spacing:0.18em; text-transform:uppercase; font-style:normal;
+  display:block; margin-top:14px;
+  border-top:1px solid var(--concrete); padding-top:14px;
+}
+.c-mission .qmark{
+  font-family:var(--f-display); font-size:120px; line-height:0.6;
+  color:var(--orange); opacity:.25;
+  position:absolute; top:30px; right:30px;
+}
+
+/* ============ EPISODES SECTION ============ */
+section.episodes{
+  max-width:1480px; margin:120px auto 0; padding:0 24px;
+  position:relative; z-index:2;
+}
+.section-head{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  flex-wrap:wrap; gap:24px; margin-bottom:36px;
+  border-bottom:1px solid var(--concrete); padding-bottom:24px;
+}
+.section-head h2{
+  font-family:var(--f-display); font-size:clamp(48px, 7vw, 120px);
+  line-height:.85; letter-spacing:-0.01em; text-transform:uppercase;
+}
+.section-head h2 .accent{ color:var(--orange) }
+.section-head .meta{
+  font-family:var(--f-mono); font-size:11px; color:var(--smoke);
+  letter-spacing:0.18em; text-transform:uppercase;
+  text-align:right;
+}
+.section-head .meta b{ color:var(--orange); display:block; font-size:13px; margin-bottom:4px}
+
+.ep-bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:minmax(110px,auto);
+  gap:14px;
+}
+.ep{
+  background:var(--gunmetal); border:1px solid var(--concrete);
+  padding:24px; position:relative; overflow:hidden;
+  transition:all .35s cubic-bezier(.2,.8,.2,1);
+  display:flex; flex-direction:column; justify-content:space-between;
+  min-height:240px;
+}
+.ep:hover{ background:var(--steel); border-color:var(--orange); transform:translateY(-4px) }
+.ep .ep-no{ font-family:var(--f-mono); font-size:11px; color:var(--orange); letter-spacing:0.22em }
+.ep .duration{ font-family:var(--f-mono); font-size:11px; color:var(--smoke); letter-spacing:0.18em }
+.ep h3{ font-family:var(--f-sub); font-size:30px; line-height:1; letter-spacing:0.04em; margin:18px 0 10px}
+.ep .desc{ font-size:14px; color:var(--smoke); line-height:1.5 }
+.ep .ep-meta{ display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:18px; padding-top:14px; border-top:1px solid var(--concrete) }
+.ep .play{ display:inline-flex; align-items:center; gap:8px; font-family:var(--f-mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--orange) }
+.ep .play:hover{ color:var(--ember) }
+
+/* Featured episode — big card */
+.ep.featured{
+  grid-column:span 8; grid-row:span 2;
+  background:
+    radial-gradient(circle at 80% 80%, rgba(245,130,32,0.15), transparent 55%),
+    linear-gradient(135deg, var(--steel) 0%, var(--gunmetal) 100%);
+  min-height:480px; padding:36px;
+}
+.ep.featured h3{ font-family:var(--f-display); font-size:clamp(40px, 5vw, 76px); line-height:.92; text-transform:uppercase; letter-spacing:-0.005em; margin:24px 0 16px}
+.ep.featured .desc{ font-size:16px; max-width:560px; color:var(--bone); opacity:.78}
+.ep.featured .scope{
+  position:absolute; right:-60px; bottom:-60px;
+  width:340px; height:340px; border:2px solid var(--orange);
+  border-radius:50%; opacity:.4;
+}
+.ep.featured .scope::before, .ep.featured .scope::after{
+  content:""; position:absolute; background:var(--orange); opacity:.6;
+}
+.ep.featured .scope::before{ top:50%; left:-30px; right:-30px; height:1px }
+.ep.featured .scope::after{ left:50%; top:-30px; bottom:-30px; width:1px }
+.ep.featured .badge{
+  display:inline-block; background:var(--live); color:var(--bone);
+  font-family:var(--f-mono); font-size:10px; letter-spacing:0.22em;
+  padding:5px 10px; text-transform:uppercase; font-weight:700;
+}
+
+/* Episode size variants */
+.ep.size-md{ grid-column:span 4; grid-row:span 2 }
+.ep.size-sm{ grid-column:span 4 }
+.ep.size-wide{ grid-column:span 6 }
+.ep.size-tall{ grid-column:span 4; grid-row:span 2 }
+
+/* ============ ABOUT HOST ============ */
+section.host{
+  max-width:1480px; margin:120px auto 0; padding:0 24px;
+  position:relative; z-index:2;
+}
+.host-grid{
+  display:grid; grid-template-columns:repeat(12,1fr); gap:14px;
+}
+.host-img{
+  grid-column:span 5;
+  background:
+    linear-gradient(135deg, rgba(245,130,32,0.25), transparent 65%),
+    var(--steel);
+  border:1px solid var(--concrete);
+  min-height:540px; position:relative; overflow:hidden;
+  display:flex; align-items:flex-end; padding:36px;
+}
+.host-img .silhouette{
+  position:absolute; inset:0; opacity:.65;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255,154,60,0.4), transparent 45%),
+    radial-gradient(circle at 50% 75%, rgba(245,130,32,0.6), transparent 50%);
+}
+.host-img .placeholder{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-family:var(--f-display); font-size:280px; color:var(--orange); line-height:.85;
+  opacity:.18; letter-spacing:-0.04em;
+}
+.host-img .badge-coord{
+  position:relative; z-index:2;
+  font-family:var(--f-mono); font-size:11px; color:var(--bone);
+  background:rgba(10,10,10,0.7); padding:10px 14px; backdrop-filter:blur(8px);
+  letter-spacing:0.16em; text-transform:uppercase;
+}
+
+.host-bio{
+  grid-column:span 7;
+  display:grid; grid-template-columns:1fr 1fr; gap:14px; grid-auto-rows:minmax(80px,auto);
+}
+.host-bio .bio-main{
+  grid-column:span 2;
+  background:var(--gunmetal); border:1px solid var(--concrete); padding:36px;
+  position:relative; overflow:hidden;
+}
+.host-bio .bio-main h2{
+  font-family:var(--f-display); font-size:clamp(48px,6vw,96px); line-height:.85;
+  text-transform:uppercase; letter-spacing:-0.01em; margin-bottom:18px;
+}
+.host-bio .bio-main h2 span{ color:var(--orange) }
+.host-bio .bio-main p{ font-size:15px; color:var(--bone); opacity:.85; max-width:540px; line-height:1.6 }
+.host-bio .bio-main p + p{ margin-top:14px }
+
+.stat{
+  background:var(--gunmetal); border:1px solid var(--concrete); padding:24px;
+  display:flex; flex-direction:column; justify-content:space-between;
+  position:relative; overflow:hidden; min-height:160px;
+  transition:all .3s;
+}
+.stat:hover{ border-color:var(--orange) }
+.stat .num{
+  font-family:var(--f-display); font-size:74px; line-height:.85; color:var(--orange);
+  letter-spacing:-0.02em;
+}
+.stat .lbl{
+  font-family:var(--f-mono); font-size:11px; color:var(--smoke);
+  letter-spacing:0.2em; text-transform:uppercase;
+}
+
+/* ============ TOPICS ============ */
+section.topics{
+  max-width:1480px; margin:120px auto 0; padding:0 24px;
+  position:relative; z-index:2;
+}
+.topics-grid{
+  display:grid; grid-template-columns:repeat(12,1fr); gap:14px;
+  grid-auto-rows:minmax(100px,auto);
+}
+.topic{
+  background:var(--gunmetal); border:1px solid var(--concrete);
+  padding:24px; transition:all .3s;
+  display:flex; flex-direction:column; justify-content:space-between;
+  position:relative; overflow:hidden; min-height:180px;
+}
+.topic:hover{ background:var(--orange); color:var(--black); border-color:var(--orange); transform:translateY(-4px) }
+.topic:hover .ico-num, .topic:hover h4, .topic:hover p{ color:var(--black) }
+.topic .ico-num{
+  font-family:var(--f-mono); font-size:12px; color:var(--orange); letter-spacing:0.22em;
+}
+.topic h4{
+  font-family:var(--f-display); font-size:38px; line-height:.95;
+  text-transform:uppercase; letter-spacing:-0.005em;
+}
+.topic p{ font-size:13px; color:var(--smoke); line-height:1.5}
+.topic.t1{ grid-column:span 5; min-height:240px }
+.topic.t2{ grid-column:span 3 }
+.topic.t3{ grid-column:span 4 }
+.topic.t4{ grid-column:span 4 }
+.topic.t5{ grid-column:span 4 }
+.topic.t6{ grid-column:span 4 }
+
+/* ============ CTA NEWSLETTER ============ */
+section.cta-band{
+  max-width:1480px; margin:120px auto 0; padding:0 24px;
+  position:relative; z-index:2;
+}
+.cta-card{
+  background:
+    linear-gradient(135deg, rgba(245,130,32,0.18) 0%, transparent 50%),
+    var(--gunmetal);
+  border:1px solid var(--orange);
+  padding:64px 48px;
+  position:relative; overflow:hidden;
+  display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:center;
+}
+.cta-card::before{
+  content:""; position:absolute; top:0; right:0;
+  width:400px; height:400px; transform:translate(40%,-40%);
+  border:2px solid var(--orange); border-radius:50%; opacity:.25;
+}
+.cta-card::after{
+  content:""; position:absolute; top:0; right:0;
+  width:200px; height:200px; transform:translate(45%,-45%);
+  border:2px solid var(--orange); border-radius:50%; opacity:.4;
+}
+.cta-card h2{
+  font-family:var(--f-display); font-size:clamp(48px,6vw,92px); line-height:.85;
+  text-transform:uppercase; letter-spacing:-0.01em; position:relative;
+}
+.cta-card h2 span{ color:var(--orange) }
+.cta-card p{ color:var(--smoke); margin-top:14px; max-width:480px; font-size:15px }
+.cta-form{ display:flex; flex-direction:column; gap:12px; position:relative; z-index:2 }
+.cta-form input{
+  background:var(--black); border:1px solid var(--concrete); color:var(--bone);
+  padding:18px 20px; font-family:var(--f-mono); font-size:13px; letter-spacing:0.06em;
+}
+.cta-form input:focus{ outline:none; border-color:var(--orange) }
+.cta-form button{
+  background:var(--orange); color:var(--black);
+  padding:18px 24px; font-family:var(--f-sub); font-size:18px; font-weight:700;
+  letter-spacing:0.18em; text-transform:uppercase;
+  transition:all .25s;
+}
+.cta-form button:hover{ background:var(--bone) }
+.cta-form .legal{ font-family:var(--f-mono); font-size:10px; color:var(--smoke); letter-spacing:0.14em; text-transform:uppercase}
+
+/* ============ FOOTER ============ */
+footer{
+  margin-top:120px; border-top:1px solid var(--concrete);
+  padding:60px 24px 24px; position:relative; z-index:2;
+}
+.foot-grid{
+  max-width:1480px; margin:0 auto;
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:32px;
+  padding-bottom:48px; border-bottom:1px solid var(--concrete);
+}
+.foot-grid h5{
+  font-family:var(--f-mono); font-size:11px; color:var(--orange);
+  letter-spacing:0.22em; text-transform:uppercase; margin-bottom:18px;
+}
+.foot-grid ul{ list-style:none; display:flex; flex-direction:column; gap:8px }
+.foot-grid ul a{ color:var(--bone); opacity:.8; font-size:14px; transition:all .2s; display:inline-block }
+.foot-grid ul a:hover{ color:var(--orange); padding-left:6px }
+.foot-brand .brand{ margin-bottom:18px }
+.foot-brand p{ color:var(--smoke); font-size:14px; max-width:340px; line-height:1.6 }
+.foot-bottom{
+  max-width:1480px; margin:0 auto; padding-top:24px;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+  font-family:var(--f-mono); font-size:11px; color:var(--smoke); letter-spacing:0.14em; text-transform:uppercase;
+}
+.foot-bottom .social{ display:flex; gap:14px }
+.foot-bottom .social a{
+  width:34px; height:34px; border:1px solid var(--concrete); border-radius:50%;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:12px; transition:all .2s;
+}
+.foot-bottom .social a:hover{ background:var(--orange); color:var(--black); border-color:var(--orange) }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1024px){
+  .nav ul{ display:none }
+  .menu-toggle{
+    display:flex; flex-direction:column; gap:5px; cursor:pointer; padding:8px;
+  }
+  .menu-toggle span{ width:24px; height:2px; background:var(--bone) }
+  .c-hero{ grid-column:span 12; min-height:440px; padding:32px }
+  .c-live, .c-playing{ grid-column:span 6 }
+  .c-count{ grid-column:span 4 }
+  .c-subscribe{ grid-column:span 8 }
+  .c-mission{ grid-column:span 12 }
+  .ep.featured{ grid-column:span 12 }
+  .ep.size-md, .ep.size-sm, .ep.size-wide, .ep.size-tall{ grid-column:span 6 }
+  .host-img, .host-bio{ grid-column:span 12 }
+  .topic.t1, .topic.t2, .topic.t3, .topic.t4, .topic.t5, .topic.t6{ grid-column:span 6 }
+  .cta-card{ grid-template-columns:1fr; padding:40px 28px }
+  .foot-grid{ grid-template-columns:1fr 1fr }
+}
+@media (max-width:640px){
+  .nav{ padding:14px 20px }
+  main{ padding:120px 14px 14px }
+  .c-hero{ padding:24px; min-height:360px }
+  .c-hero h1{ font-size:18vw }
+  .c-live, .c-playing, .c-count, .c-subscribe, .c-mission,
+  .ep, .ep.featured, .ep.size-md, .ep.size-sm, .ep.size-wide, .ep.size-tall,
+  .host-img, .host-bio,
+  .topic.t1, .topic.t2, .topic.t3, .topic.t4, .topic.t5, .topic.t6{ grid-column:span 12 }
+  .host-bio{ grid-template-columns:1fr }
+  .host-bio .bio-main{ grid-column:span 1; padding:24px }
+  .platforms{ grid-template-columns:1fr }
+  .section-head{ flex-direction:column; align-items:flex-start }
+  .section-head .meta{ text-align:left }
+  .foot-grid{ grid-template-columns:1fr; gap:24px }
+  .foot-bottom{ flex-direction:column; align-items:flex-start }
+}
+
+/* Reveal-on-scroll */
+.reveal{ opacity:0; transform:translateY(24px); transition:opacity .8s, transform .8s }
+.reveal.in{ opacity:1; transform:translateY(0) }
+</style>
+</head>
+<body>
+
+<div class="dot-grid"></div>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav">
+  <a href="#" class="brand">
+    <span class="reticle"></span>
+    <span>OZ <span class="frq">/FRQ</span></span>
+  </a>
+  <ul>
+    <li><a href="#episodes">Episodes</a></li>
+    <li><a href="#host">The Host</a></li>
+    <li><a href="#topics">Intel</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="cta">Subscribe ▸</a>
+  <button class="menu-toggle" aria-label="menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ===================== TICKER ===================== -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span><i></i> NEW EPISODE EVERY THURSDAY 0600 HOURS</span>
+    <span><i></i> EP 047 — THE QUIET WARS — DROPPED</span>
+    <span><i></i> NOW BROADCASTING FROM COLORADO</span>
+    <span><i></i> SHADOW WARRIORS PROJECT — TEXT "SHADOW" TO 91999</span>
+    <span><i></i> 13 HOURS — THE INSIDE ACCOUNT — AVAILABLE NOW</span>
+    <span><i></i> NEW EPISODE EVERY THURSDAY 0600 HOURS</span>
+    <span><i></i> EP 047 — THE QUIET WARS — DROPPED</span>
+    <span><i></i> NOW BROADCASTING FROM COLORADO</span>
+  </div>
+</div>
+
+<!-- ===================== HERO BENTO ===================== -->
+<main>
+  <section class="bento" id="hero">
+
+    <!-- HERO TITLE -->
+    <div class="cell c-hero reveal">
+      <div>
+        <span class="tag">Active Frequency · Est. 2024</span>
+        <h1>The OZ <span class="accent">Frequency</span></h1>
+      </div>
+      <p class="tag-line">
+        Stories of valor, leadership, and the truth behind the headlines —
+        broadcast through the eyes of a man who survived 13 hours of hell
+        and lived to tell every minute of it.
+      </p>
+      <div class="meta-row">
+        <div class="coord">
+          LAT <b>38.4192°N</b> &nbsp;·&nbsp; LON <b>13.3621°E</b><br>
+          BROADCAST · UTC-07 · COLORADO · 24KHZ
+        </div>
+        <a href="#episodes" class="play-cta">
+          ▶ Tune In Latest <span class="arrow">→</span>
+        </a>
+      </div>
+      <div class="bg-reticle"><div class="inner"></div></div>
+    </div>
+
+    <!-- LIVE -->
+    <div class="cell c-live reveal">
+      <div>
+        <div class="live-row"><span class="dot"></span> <span class="tag" style="margin:0">On Air Status</span></div>
+        <h3>ON AIR</h3>
+      </div>
+      <div class="listeners">
+        <b>4,217</b><br>
+        Active listeners worldwide
+      </div>
+    </div>
+
+    <!-- NOW PLAYING -->
+    <div class="cell c-playing reveal">
+      <div>
+        <div class="ep-no">// EP 047 · NOW PLAYING</div>
+        <h4>The Quiet Wars: Contractors Nobody Talks About</h4>
+      </div>
+      <div class="wave">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <div class="controls">
+        <span>14:32 / 58:21</span>
+        <button class="play-btn" aria-label="play">▶</button>
+        <span>1.0×</span>
+      </div>
+    </div>
+
+    <!-- COUNT -->
+    <div class="cell c-count reveal">
+      <span class="tag">Episodes Broadcast</span>
+      <div class="num">047</div>
+      <div>
+        <div class="label">Missions on Record</div>
+        <div class="arr">→ ARCHIVE OPEN</div>
+      </div>
+    </div>
+
+    <!-- SUBSCRIBE -->
+    <div class="cell c-subscribe reveal">
+      <span class="tag">Frequency Locks</span>
+      <h3>Tune In<br>Anywhere</h3>
+      <p>Stream the OZ Frequency on every major platform. New transmission every Thursday, 0600 hours.</p>
+      <div class="platforms">
+        <a href="#"><span class="ico">S</span> Spotify</a>
+        <a href="#"><span class="ico">A</span> Apple Pods</a>
+        <a href="#"><span class="ico">Y</span> YouTube</a>
+        <a href="#"><span class="ico">R</span> RSS Feed</a>
+      </div>
+    </div>
+
+    <!-- MISSION QUOTE -->
+    <div class="cell c-mission reveal">
+      <span class="qmark">"</span>
+      <blockquote>
+        Truth doesn't come from a podium. <span>It comes from the men who were there.</span>
+      </blockquote>
+      <cite>— Mark "Oz" Geist · Host</cite>
+    </div>
+
+  </section>
+
+  <!-- ===================== EPISODES ===================== -->
+  <section class="episodes" id="episodes">
+    <div class="section-head reveal">
+      <h2>Mission <span class="accent">Logs</span></h2>
+      <div class="meta">
+        <b>// LATEST INTAKE</b>
+        Filed under classified · declassified · for the public record
+      </div>
+    </div>
+
+    <div class="ep-bento">
+
+      <!-- FEATURED -->
+      <article class="ep featured reveal">
+        <div>
+          <span class="badge">● NEWLY DROPPED</span>
+        </div>
+        <div>
+          <div style="display:flex; gap:18px; align-items:center; font-family:var(--f-mono); font-size:11px; letter-spacing:0.22em; color:var(--orange)">
+            EP 047 · NOV 2025 · 58 MIN
+          </div>
+          <h3>The Quiet Wars: Contractors Nobody Talks About</h3>
+          <p class="desc">
+            Behind every official military operation runs a parallel story of private security contractors —
+            men who carry the same weight without the parade. Oz sits down with three of them to talk
+            about invisible wounds, family, and the men we didn't bring home.
+          </p>
+          <div class="ep-meta">
+            <span class="duration">// CLEARANCE: PUBLIC</span>
+            <a href="#" class="play">▶ Listen Now →</a>
+          </div>
+        </div>
+        <div class="scope"></div>
+      </article>
+
+      <!-- MD -->
+      <article class="ep size-md reveal">
+        <div>
+          <div style="display:flex; justify-content:space-between"><span class="ep-no">// 046</span><span class="duration">52:14</span></div>
+          <h3>The Border File</h3>
+          <p class="desc">Unaccompanied minors, cartels, and the humanitarian gray zone. A retired Border Patrol commander breaks it down.</p>
+        </div>
+        <div class="ep-meta">
+          <span class="duration">OCT 2025</span>
+          <a href="#" class="play">▶ Play →</a>
+        </div>
+      </article>
+
+      <!-- TALL -->
+      <article class="ep size-tall reveal">
+        <div>
+          <div style="display:flex; justify-content:space-between"><span class="ep-no">// 045</span><span class="duration">47:08</span></div>
+          <h3>Service Dogs &amp; Silent Healing</h3>
+          <p class="desc">PTSD doesn't show on a CT scan. Inside the Shadow Warriors Project's K9 program — and how a 70-pound Belgian Malinois saved a SEAL's marriage.</p>
+        </div>
+        <div class="ep-meta">
+          <span class="duration">OCT 2025</span>
+          <a href="#" class="play">▶ Play →</a>
+        </div>
+      </article>
+
+      <!-- SM -->
+      <article class="ep size-sm reveal">
+        <div>
+          <div style="display:flex; justify-content:space-between"><span class="ep-no">// 044</span><span class="duration">39:55</span></div>
+          <h3>Second Amendment, Read Twice</h3>
+          <p class="desc">A constitutional lawyer and a gunsmith walk into a studio.</p>
+        </div>
+        <div class="ep-meta">
+          <span class="duration">SEP 2025</span>
+          <a href="#" class="play">▶ Play →</a>
+        </div>
+      </article>
+
+      <!-- SM -->
+      <article class="ep size-sm reveal">
+        <div>
+          <div style="display:flex; justify-content:space-between"><span class="ep-no">// 043</span><span class="duration">61:22</span></div>
+          <h3>Leadership Under Fire</h3>
+          <p class="desc">Decisions you make in 90 seconds when there's no manual.</p>
+        </div>
+        <div class="ep-meta">
+          <span class="duration">SEP 2025</span>
+          <a href="#" class="play">▶ Play →</a>
+        </div>
+      </article>
+
+      <!-- WIDE -->
+      <article class="ep size-wide reveal">
+        <div>
+          <div style="display:flex; justify-content:space-between"><span class="ep-no">// 042</span><span class="duration">71:40</span></div>
+          <h3>Benghazi: 13 Years Later</h3>
+          <p class="desc">A long-form retrospective. Oz revisits September 11, 2012 — what was reported, what was buried, and what the families still want answered.</p>
+        </div>
+        <div class="ep-meta">
+          <span class="duration">SEP 2025</span>
+          <a href="#" class="play">▶ Play →</a>
+        </div>
+      </article>
+
+      <!-- WIDE -->
+      <article class="ep size-wide reveal">
+        <div>
+          <div style="display:flex; justify-content:space-between"><span class="ep-no">// 041</span><span class="duration">44:18</span></div>
+          <h3>The Cop, The Marine, The Father</h3>
+          <p class="desc">Three identities, one man — and what happens when all three are competing for the same hour of your day.</p>
+        </div>
+        <div class="ep-meta">
+          <span class="duration">AUG 2025</span>
+          <a href="#" class="play">▶ Play →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===================== HOST ===================== -->
+  <section class="host" id="host">
+    <div class="section-head reveal">
+      <h2>The <span class="accent">Operator</span></h2>
+      <div class="meta">
+        <b>// PROFILE 01-OF-01</b>
+        Marine · Sheriff · Survivor · Author · Voice
+      </div>
+    </div>
+
+    <div class="host-grid">
+      <div class="host-img reveal">
+        <div class="silhouette"></div>
+        <div class="placeholder">OZ</div>
+        <div class="badge-coord">// FILE: GEIST, MARK · CALL SIGN: OZ</div>
+      </div>
+
+      <div class="host-bio">
+        <div class="bio-main reveal">
+          <span class="tag">Identification Brief</span>
+          <h2>Mark "<span>Oz</span>" Geist</h2>
+          <p>
+            Marine Corps veteran (1984–1996). Deputy Sheriff and small-town Police Chief
+            in rural Colorado. Private security contractor in Iraq and Libya. Member of
+            the Annex Security Team in Benghazi on September 11–12, 2012 — the night that
+            became "13 Hours."
+          </p>
+          <p>
+            Co-author of the bestselling book that put names and faces to a story
+            Washington tried to tell without them. Founder of the Shadow Warriors Project,
+            advocating for contractors carrying invisible wounds. And now — host.
+          </p>
+          <p style="font-family:var(--f-mono); font-size:12px; color:var(--orange); letter-spacing:0.18em; margin-top:24px">
+            // CREDITED WITH HELPING SAVE THE LIVES OF MORE THAN 25 AMERICANS
+          </p>
+        </div>
+
+        <div class="stat reveal">
+          <span class="tag">Service</span>
+          <div><div class="num">12</div><div class="lbl">Years USMC</div></div>
+        </div>
+        <div class="stat reveal">
+          <span class="tag">Saved</span>
+          <div><div class="num">25+</div><div class="lbl">American Lives</div></div>
+        </div>
+        <div class="stat reveal">
+          <span class="tag">Ground Time</span>
+          <div><div class="num">13H</div><div class="lbl">Benghazi Annex</div></div>
+        </div>
+        <div class="stat reveal">
+          <span class="tag">Bestseller</span>
+          <div><div class="num">#1</div><div class="lbl">NYT — 13 Hours</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TOPICS ===================== -->
+  <section class="topics" id="topics">
+    <div class="section-head reveal">
+      <h2>Intel <span class="accent">Categories</span></h2>
+      <div class="meta">
+        <b>// 06 SECTORS</b>
+        Pick your frequency · filter by clearance level
+      </div>
+    </div>
+
+    <div class="topics-grid">
+      <a class="topic t1 reveal">
+        <div>
+          <span class="ico-num">// 01</span>
+          <h4>Combat &amp; Tactical</h4>
+        </div>
+        <p>Field-tested decisions, breach drills, and the moments when training meets reality. Operators only — guests with the dust still on their boots.</p>
+      </a>
+      <a class="topic t2 reveal">
+        <div>
+          <span class="ico-num">// 02</span>
+          <h4>Veterans</h4>
+        </div>
+        <p>Coming home is the longer war.</p>
+      </a>
+      <a class="topic t3 reveal">
+        <div>
+          <span class="ico-num">// 03</span>
+          <h4>Leadership</h4>
+        </div>
+        <p>Decisions under pressure. Lessons that scale from a fire team to a boardroom.</p>
+      </a>
+      <a class="topic t4 reveal">
+        <div>
+          <span class="ico-num">// 04</span>
+          <h4>Liberty &amp; The Constitution</h4>
+        </div>
+        <p>Read it twice. Argued straight — no soundbites, no scripts.</p>
+      </a>
+      <a class="topic t5 reveal">
+        <div>
+          <span class="ico-num">// 05</span>
+          <h4>Mental Health &amp; Service Dogs</h4>
+        </div>
+        <p>Invisible wounds, real treatment. The Shadow Warriors Project on the record.</p>
+      </a>
+      <a class="topic t6 reveal">
+        <div>
+          <span class="ico-num">// 06</span>
+          <h4>Untold Stories</h4>
+        </div>
+        <p>The men who were there. The records that weren't filed. The names that didn't make the briefing.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="cta-band" id="contact">
+    <div class="cta-card reveal">
+      <div>
+        <span class="tag">Comms Channel · Encrypted</span>
+        <h2>Get the<br><span>Field Report</span></h2>
+        <p>
+          Behind-the-scenes notes, episode pre-releases, and the occasional invitation to a live recording.
+          One transmission per week. No spam. No politics theatre — just the report.
+        </p>
+      </div>
+      <form class="cta-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='✓ TRANSMISSION RECEIVED';">
+        <input type="text" placeholder="// CALL SIGN — your name" required>
+        <input type="email" placeholder="// FREQUENCY — your email" required>
+        <button type="submit">Lock In ▸</button>
+        <span class="legal">// We don't sell, share, or surrender your data.</span>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a href="#" class="brand">
+        <span class="reticle"></span>
+        <span>OZ <span class="frq" style="color:var(--orange)">/FRQ</span></span>
+      </a>
+      <p>The OZ Frequency — a podcast hosted by Mark "Oz" Geist. Stories of valor, leadership, and the truth behind the headlines. Broadcasting from Colorado, USA.</p>
+    </div>
+    <div>
+      <h5>// Show</h5>
+      <ul>
+        <li><a href="#episodes">Episodes</a></li>
+        <li><a href="#host">The Host</a></li>
+        <li><a href="#topics">Categories</a></li>
+        <li><a href="#">Press Kit</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>// Listen</h5>
+      <ul>
+        <li><a href="#">Spotify</a></li>
+        <li><a href="#">Apple Podcasts</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">RSS Feed</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>// Mission</h5>
+      <ul>
+        <li><a href="#">Shadow Warriors Project</a></li>
+        <li><a href="#">13 Hours — The Book</a></li>
+        <li><a href="#">Booking &amp; Speaking</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 THE OZ FREQUENCY · ALL RIGHTS RESERVED · BUILT IN COLORADO</span>
+    <div class="social">
+      <a href="#" aria-label="x">X</a>
+      <a href="#" aria-label="ig">IG</a>
+      <a href="#" aria-label="yt">YT</a>
+      <a href="#" aria-label="fb">FB</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal-on-scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Live listener counter (subtle drift)
+  const liveEl = document.querySelector('.c-live .listeners b');
+  if(liveEl){
+    let n = 4217;
+    setInterval(()=>{
+      n += Math.floor(Math.random()*7) - 3;
+      if(n < 4000) n = 4000;
+      liveEl.textContent = n.toLocaleString();
+    }, 2400);
+  }
+</script>
+
+</body>
+</html>

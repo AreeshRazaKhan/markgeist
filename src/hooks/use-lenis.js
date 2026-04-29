@@ -30,7 +30,12 @@ const useLenis = ({ enabled = true } = {}) => {
     gsap.ticker.add(tickerCb)
     gsap.ticker.lagSmoothing(0)
 
+    const refreshId = window.requestAnimationFrame(() => {
+      ScrollTrigger.refresh()
+    })
+
     return () => {
+      window.cancelAnimationFrame(refreshId)
       gsap.ticker.remove(tickerCb)
       lenis.destroy()
       lenisRef.current = null

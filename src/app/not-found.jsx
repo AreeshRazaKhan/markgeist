@@ -4,7 +4,7 @@ const NotFound = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-6">
       <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-        {'// 404 — off frequency'}
+        {'// 404 — episode not found'}
       </p>
       <h2 className="text-2xl font-semibold">Page not found</h2>
       <Link

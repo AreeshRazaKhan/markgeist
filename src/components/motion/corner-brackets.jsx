@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 import { cn } from '@/lib/utils'
 
-const CornerBrackets = ({ className, color }) => {
+const CornerBrackets = ({ className = '', color = 'ink' }) => {
   const stroke = color === 'accent' ? 'border-accent' : 'border-ink/70'
   return (
     <span aria-hidden className={cn('pointer-events-none absolute inset-0', className)}>
@@ -17,11 +17,6 @@ const CornerBrackets = ({ className, color }) => {
 CornerBrackets.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(['ink', 'accent'])
-}
-
-CornerBrackets.defaultProps = {
-  className: '',
-  color: 'ink'
 }
 
 export default CornerBrackets

@@ -1,5 +1,6 @@
 import TopNav from '@/components/nav/top-nav'
 import TransmissionZero from '@/components/sections/transmission-zero'
+import SubscribeRow from '@/components/sections/subscribe-row'
 import NowBroadcasting from '@/components/sections/now-broadcasting'
 import OperatorDossier from '@/components/sections/operator-dossier'
 import MissionLogs from '@/components/sections/mission-logs'
@@ -14,6 +15,7 @@ const HomePage = () => {
       <TopNav />
       <main className="relative">
         <TransmissionZero />
+        <SubscribeRow />
         <NowBroadcasting />
         <OperatorDossier />
         <MissionLogs />

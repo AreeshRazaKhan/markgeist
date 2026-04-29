@@ -13,7 +13,7 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-const ParallaxLayer = ({ speed, className, children }) => {
+const ParallaxLayer = ({ speed = 1, className = '', children }) => {
   const ref = useRef(null)
   const reduced = useReducedMotion()
 
@@ -48,11 +48,6 @@ ParallaxLayer.propTypes = {
   speed: PropTypes.number,
   className: PropTypes.string,
   children: PropTypes.node.isRequired
-}
-
-ParallaxLayer.defaultProps = {
-  speed: 1,
-  className: ''
 }
 
 export default ParallaxLayer

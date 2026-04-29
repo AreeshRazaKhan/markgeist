@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import useMagnetic from '@/hooks/use-magnetic'
 import { cn } from '@/lib/utils'
 
-const Magnetic = ({ as: Tag, strength, radius, className, children, ...rest }) => {
+const Magnetic = ({ as: Tag = 'span', strength = 0.3, radius = 140, className = '', children, ...rest }) => {
   const ref = useRef(null)
   useMagnetic(ref, { strength, radius })
 
@@ -23,13 +23,6 @@ Magnetic.propTypes = {
   radius: PropTypes.number,
   className: PropTypes.string,
   children: PropTypes.node.isRequired
-}
-
-Magnetic.defaultProps = {
-  as: 'span',
-  strength: 0.3,
-  radius: 140,
-  className: ''
 }
 
 export default Magnetic

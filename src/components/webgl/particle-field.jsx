@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 
 const PARTICLE_COUNT = 1200
 
-const ParticleField = ({ points, className }) => {
+const ParticleField = ({ points = [], className = '' }) => {
   const canvasRef = useRef(null)
   const reduced = useReducedMotion()
 
@@ -139,11 +139,6 @@ ParticleField.propTypes = {
     })
   ),
   className: PropTypes.string
-}
-
-ParticleField.defaultProps = {
-  points: [],
-  className: ''
 }
 
 export default ParticleField

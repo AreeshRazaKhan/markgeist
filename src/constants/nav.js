@@ -1,15 +1,47 @@
 export const NAV_LINKS = [
-  { label: 'Transmission', href: '#transmission' },
-  { label: 'Mission Logs', href: '#mission-logs' },
-  { label: 'Operator', href: '#operator' },
-  { label: 'The Field', href: '#the-field' },
-  { label: 'Intel', href: '#intel-feed' },
-  { label: 'Open Comms', href: '#open-comms' }
+  { label: 'Latest', href: '#latest-episode' },
+  { label: 'Episodes', href: '#mission-logs' },
+  { label: 'About Oz', href: '#operator' },
+  { label: 'Guests', href: '#the-field' },
+  { label: 'Journal', href: '#intel-feed' },
+  { label: 'Subscribe', href: '#newsletter' }
+]
+
+export const SUBSCRIBE_LINKS = [
+  {
+    label: 'Spotify',
+    code: 'SPT',
+    href: 'https://open.spotify.com/episode/4nuvtJt2TqDiJQqQIM84TR'
+  },
+  {
+    label: 'Apple Podcasts',
+    code: 'APL',
+    href: 'https://podcasts.apple.com/ga/podcast/mark-geist-mortars-miracles-why-he-survived-benghazi/id1674015509?i=1000745708568'
+  },
+  {
+    label: 'YouTube',
+    code: 'YT',
+    href: 'https://youtu.be/Q9i_es05rWc'
+  },
+  {
+    label: 'RSS',
+    code: 'RSS',
+    href: '#'
+  }
 ]
 
 export const SOCIAL_LINKS = [
-  { label: 'Spotify', href: 'https://spotify.com' },
-  { label: 'Apple', href: 'https://podcasts.apple.com' },
-  { label: 'YouTube', href: 'https://youtube.com' },
-  { label: 'X', href: 'https://x.com' }
+  { label: 'X', href: 'https://x.com/MarkGeistSWP' },
+  { label: 'Instagram', href: 'https://www.instagram.com/markozgeist/' },
+  { label: 'Facebook', href: 'https://www.facebook.com/markgeist13/' },
+  { label: 'YouTube', href: 'https://youtu.be/Q9i_es05rWc' },
+  { label: 'Apple', href: 'https://podcasts.apple.com/ga/podcast/mark-geist-mortars-miracles-why-he-survived-benghazi/id1674015509?i=1000745708568' },
+  { label: 'Spotify', href: 'https://open.spotify.com/episode/4nuvtJt2TqDiJQqQIM84TR' }
+]
+
+export const MISSION_LINKS = [
+  { label: 'Shadow Warriors Project', href: 'https://shadowwarriorsproject.org/about-mark-oz-geist/' },
+  { label: '13 Hours — The Book', href: 'https://www.amazon.com/13-Hours-Inside-Account-Happened/dp/1455582298' },
+  { label: 'Speaking & Booking', href: 'https://teamneverquit.com/speakers/mark-geist/' },
+  { label: 'Markgeist.com', href: 'https://markgeist.com/' }
 ]

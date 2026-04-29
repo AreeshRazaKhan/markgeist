@@ -1,16 +1,17 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { toast } from 'sonner'
 
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import HudTag from '@/components/motion/hud-tag'
-import CornerBrackets from '@/components/motion/corner-brackets'
 import SplitReveal from '@/components/motion/split-reveal'
+import ColorScrub from '@/components/motion/color-scrub'
 import ArrowButton from '@/components/motion/arrow-button'
+import Reveal from '@/components/motion/reveal'
+import Odometer from '@/components/motion/odometer'
+import TextScramble from '@/components/motion/text-scramble'
 import useGsapContext from '@/hooks/use-gsap-context'
 import useReducedMotion from '@/hooks/use-reduced-motion'
 import { cn } from '@/lib/utils'
@@ -19,52 +20,23 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-const TARGET_COUNT = 13428
-
-const Counter = () => {
-  const ref = useRef(null)
-  const reduced = useReducedMotion()
-  const [val, setVal] = useState(reduced ? TARGET_COUNT : 0)
-
-  useEffect(() => {
-    if (reduced || !ref.current) return undefined
-    const obj = { v: 0 }
-    const tween = gsap.to(obj, {
-      v: TARGET_COUNT,
-      duration: 2.4,
-      ease: 'power3.out',
-      onUpdate: () => setVal(Math.floor(obj.v)),
-      scrollTrigger: { trigger: ref.current, start: 'top 75%', once: true }
-    })
-    return () => tween.kill()
-  }, [reduced])
-
-  return (
-    <div ref={ref}>
-      <HudTag color="accent">FREQUENCY UNLOCKED</HudTag>
-      <p className="mt-2 font-display text-[clamp(56px,9vw,140px)] leading-none text-ink tabular-nums">
-        {val.toLocaleString('en-US')}
-      </p>
-      <p className="mt-2 text-sm text-mute">operators tuned in</p>
-    </div>
-  )
-}
-
 const OpenComms = () => {
   const ref = useRef(null)
   const reduced = useReducedMotion()
-  const [transmitting, setTransmitting] = useState(false)
+  const [subscribing, setSubscribing] = useState(false)
 
   useGsapContext(
     () => {
       if (reduced) return
-      gsap.from('[data-form-row]', {
-        opacity: 0,
-        y: 16,
-        duration: 0.6,
-        stagger: 0.06,
-        ease: 'expo.out',
-        scrollTrigger: { trigger: ref.current, start: 'top 75%', once: true }
+      gsap.to('[data-cta-wordmark]', {
+        yPercent: -10,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: ref.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.6
+        }
       })
     },
     [reduced],
@@ -73,11 +45,11 @@ const OpenComms = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    setTransmitting(true)
+    setSubscribing(true)
     setTimeout(() => {
-      setTransmitting(false)
-      toast.success('SIGNAL RECEIVED', {
-        description: 'You are now on the frequency.',
+      setSubscribing(false)
+      toast.success('You&rsquo;re in', {
+        description: 'New episodes will land in your inbox.',
         duration: 3500
       })
       e.target.reset()
@@ -86,99 +58,103 @@ const OpenComms = () => {
 
   return (
     <section
-      id="open-comms"
+      id="newsletter"
       ref={ref}
       className="relative section-y overflow-hidden border-b border-border bg-bg"
     >
-      <div aria-hidden className="absolute inset-0 grid-bg opacity-20" />
-
-      <div className="container-x relative z-content grid grid-cols-12 gap-6">
-        <div className="col-span-12 mb-8 flex items-center gap-4">
-          <HudTag color="accent">07 · OPEN COMMS</HudTag>
-          <span className="h-px flex-1 bg-border" />
-          <HudTag color="hud">CHANNEL OPEN</HudTag>
-        </div>
-
-        <div className="relative col-span-12 border border-border bg-surface p-8 lg:col-span-7 lg:p-12">
-          <CornerBrackets color="accent" />
-          <Counter />
-          <div className="mt-10 grid grid-cols-3 gap-4 border-t border-border pt-8">
-            <div>
-              <HudTag>SPOTIFY</HudTag>
-              <p className="mt-2 font-display text-2xl text-ink">8.4K</p>
-            </div>
-            <div>
-              <HudTag>APPLE</HudTag>
-              <p className="mt-2 font-display text-2xl text-ink">3.1K</p>
-            </div>
-            <div>
-              <HudTag>YOUTUBE</HudTag>
-              <p className="mt-2 font-display text-2xl text-ink">1.9K</p>
-            </div>
+      <div className="container-x relative z-content">
+        <Reveal className="mb-10 flex flex-col items-center gap-6 text-center lg:mb-12">
+          <HudTag color="accent">
+            <TextScramble text="07 — NEWSLETTER" />
+          </HudTag>
+          <div className="flex flex-col items-center gap-2">
+            <HudTag color="mute">LISTENERS</HudTag>
+            <Odometer
+              value={13428}
+              className="font-display text-[clamp(56px,10vw,140px)] tracking-display text-ink"
+            />
           </div>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <ArrowButton variant="primary">TUNE IN · SPOTIFY</ArrowButton>
-            <ArrowButton variant="ghost">APPLE PODCASTS</ArrowButton>
-            <ArrowButton variant="ghost">YOUTUBE</ArrowButton>
-          </div>
-        </div>
-
-        <div className="relative col-span-12 border border-border bg-surface p-8 lg:col-span-5 lg:p-12">
-          <CornerBrackets />
-          <h3 className="display-lg text-3xl text-ink lg:text-5xl">
-            <SplitReveal className="block">JOIN</SplitReveal>
-            <SplitReveal className="block text-accent" delay={0.08}>THE FREQUENCY.</SplitReveal>
-          </h3>
-          <p className="mt-3 text-sm text-mute">
-            One transmission per drop. No marketing. Receipts only.
+          <p className="max-w-md font-mono text-[10px] uppercase tracking-[0.22em] text-mute">
+            One email per new episode. No marketing. Receipts only.
           </p>
+        </Reveal>
 
-          <form onSubmit={onSubmit} className="mt-8 space-y-4">
-            <div data-form-row>
-              <Label htmlFor="callsign" className="font-mono text-[10px] uppercase tracking-[0.2em] text-mute">
-                CALLSIGN
-              </Label>
-              <Input
-                id="callsign"
-                name="callsign"
-                required
-                className="mt-2 border-border bg-bg font-mono uppercase tracking-[0.12em]"
-                placeholder="OPERATOR"
-              />
-            </div>
-            <div data-form-row>
-              <Label htmlFor="email" className="font-mono text-[10px] uppercase tracking-[0.2em] text-mute">
-                COMM CHANNEL
-              </Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                required
-                className="mt-2 border-border bg-bg font-mono tracking-[0.06em]"
-                placeholder="you@frequency.io"
-              />
-            </div>
-            <div data-form-row>
-              <Label htmlFor="intent" className="font-mono text-[10px] uppercase tracking-[0.2em] text-mute">
-                INTENT
-              </Label>
-              <Input
-                id="intent"
-                name="intent"
-                className="mt-2 border-border bg-bg"
-                placeholder="Booking · Lottery · Listener"
-              />
-            </div>
-            <div data-form-row className="flex items-center gap-3 pt-2">
-              <ArrowButton variant="primary" type="submit" disabled={transmitting}>
-                {transmitting ? 'TRANSMITTING…' : 'TRANSMIT'}
-              </ArrowButton>
-              <span className={cn('font-mono text-[10px] uppercase tracking-[0.2em]', transmitting ? 'text-live' : 'text-mute')}>
-                {transmitting ? '● ENCODING' : '○ READY'}
-              </span>
-            </div>
-          </form>
+        {/* Giant CTA wordmark — full bleed */}
+        <h2
+          data-cta-wordmark
+          className="full-bleed display-xl whitespace-nowrap text-center text-ink"
+          style={{ fontSize: 'clamp(72px, 12vw, 200px)', lineHeight: 0.86, letterSpacing: '-0.02em' }}
+        >
+          <ColorScrub as="span" className="block">
+            <SplitReveal className="block">SAY HELLO,</SplitReveal>
+            <SplitReveal className="block italic text-accent" delay={0.08}>OPERATOR.</SplitReveal>
+          </ColorScrub>
+        </h2>
+
+        {/* Inline single-line form */}
+        <form
+          onSubmit={onSubmit}
+          className="mx-auto mt-12 flex max-w-2xl flex-col items-stretch gap-3 sm:flex-row sm:gap-0"
+        >
+          <label htmlFor="newsletter-email" className="sr-only">
+            Email address
+          </label>
+          <input
+            id="newsletter-email"
+            type="email"
+            name="email"
+            required
+            placeholder="you@email.com"
+            aria-label="Email address"
+            className="flex-1 border border-border bg-transparent px-5 py-4 font-mono text-sm tracking-[0.06em] text-ink placeholder:text-mute focus:border-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+          />
+          <button
+            type="submit"
+            disabled={subscribing}
+            className={cn(
+              'inline-flex items-center justify-center gap-3 border px-6 py-4 font-mono text-xs uppercase tracking-[0.22em] transition-colors duration-200 sm:border-l-0',
+              subscribing
+                ? 'border-accent bg-accent text-accent-foreground'
+                : 'border-accent bg-transparent text-accent hover:bg-accent hover:text-accent-foreground'
+            )}
+          >
+            {subscribing ? 'SENDING…' : 'SUBSCRIBE'}
+            <span aria-hidden>→</span>
+          </button>
+        </form>
+
+        {/* Or — direct platform links */}
+        <div className="mx-auto mt-12 flex max-w-3xl flex-col items-center gap-4 border-t border-border pt-10">
+          <HudTag color="mute">OR LISTEN DIRECTLY</HudTag>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <ArrowButton
+              as="a"
+              href="https://open.spotify.com/episode/4nuvtJt2TqDiJQqQIM84TR"
+              target="_blank"
+              rel="noreferrer"
+              variant="ghost"
+            >
+              SPOTIFY
+            </ArrowButton>
+            <ArrowButton
+              as="a"
+              href="https://podcasts.apple.com/ga/podcast/mark-geist-mortars-miracles-why-he-survived-benghazi/id1674015509?i=1000745708568"
+              target="_blank"
+              rel="noreferrer"
+              variant="ghost"
+            >
+              APPLE PODCASTS
+            </ArrowButton>
+            <ArrowButton
+              as="a"
+              href="https://youtu.be/Q9i_es05rWc"
+              target="_blank"
+              rel="noreferrer"
+              variant="ghost"
+            >
+              YOUTUBE
+            </ArrowButton>
+          </div>
         </div>
       </div>
     </section>

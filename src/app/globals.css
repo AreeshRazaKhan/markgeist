@@ -4,19 +4,22 @@
 
 @layer base {
   :root {
-    --bg: 0 0% 4%;
-    --surface: 0 0% 7%;
-    --ink: 60 9% 96%;
-    --mute: 30 6% 64%;
-    --accent: 22 94% 53%;
+    /* Tactical / operator palette — locked to the logo */
+    --bg: 0 0% 4%;            /* #0A0A0A near-black */
+    --surface: 0 0% 8%;       /* #141414 gunmetal */
+    --steel: 0 0% 12%;        /* #1F1F1F */
+    --ink: 40 33% 93%;        /* #F5F1E8 bone */
+    --mute: 0 0% 55%;         /* #8C8C8C cool grey */
+    --accent: 28 91% 54%;     /* #F58220 logo orange */
     --accent-foreground: 0 0% 4%;
-    --live: 0 84% 60%;
-    --hud: 188 88% 55%;
+    --ember: 26 100% 62%;     /* #FF9A3C hover on orange */
+    --live: 1 77% 55%;        /* #E53935 */
+    --olive: 80 45% 25%;
 
-    --border: 240 4% 16%;
-    --border-hot: 22 94% 53%;
-    --input: 240 4% 16%;
-    --ring: 22 94% 53%;
+    --border: 0 0% 16%;       /* #2A2A2A */
+    --border-hot: 28 91% 54%;
+    --input: 0 0% 16%;
+    --ring: 28 91% 54%;
 
     --background: var(--bg);
     --foreground: var(--ink);
@@ -26,9 +29,9 @@
     --popover-foreground: var(--ink);
     --primary: var(--ink);
     --primary-foreground: var(--bg);
-    --secondary: 240 4% 12%;
+    --secondary: 0 0% 12%;
     --secondary-foreground: var(--ink);
-    --muted: 240 4% 12%;
+    --muted: 0 0% 12%;
     --muted-foreground: var(--mute);
     --destructive: var(--live);
     --destructive-foreground: var(--ink);
@@ -36,8 +39,10 @@
     --radius: 0;
 
     --section-y: 80px;
-    --cell-pad: 24px;
+    --cell-pad: 32px;
     --corner-bracket: 12px;
+
+    --max-w: 1440px;
   }
 
   @media (min-width: 1024px) {
@@ -52,6 +57,7 @@
     @apply border-border;
   }
   html {
+    @apply text-ink;
     color-scheme: dark;
     scroll-behavior: auto;
   }
@@ -70,52 +76,104 @@
     @apply mx-auto w-full max-w-[1440px] px-6 lg:px-10;
   }
 
+  .container-narrow {
+    @apply mx-auto w-full max-w-[920px] px-6 lg:px-10;
+  }
+
   .section-y {
     padding-top: var(--section-y);
     padding-bottom: var(--section-y);
-  }
-
-  .cell {
-    @apply relative border border-border bg-surface p-6 transition-colors duration-200;
-  }
-  .cell:hover {
-    border-color: hsl(var(--border-hot));
   }
 
   .hud-tag {
     @apply font-mono text-[10px] uppercase tracking-[0.2em] text-mute;
   }
 
+  /* Display — condensed bold matching the logo letterforms (Anton). Faux-italic = matches logo slant exactly. */
   .display-xl {
-    @apply font-display font-semibold uppercase tracking-display;
-    line-height: 0.92;
+    @apply font-display uppercase;
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -0.015em;
   }
   .display-lg {
-    @apply font-display font-semibold uppercase tracking-display;
-    line-height: 0.95;
+    @apply font-display uppercase;
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
   }
 
+  /* Full-bleed — break out of the container to viewport edges */
+  .full-bleed {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  /* Italic display = faux-skew Anton — visually matches the logo's "OZ" italic */
+  .display-italic {
+    font-style: italic;
+  }
+
+  /* Soft hairline */
+  .hr-soft {
+    @apply h-px w-full bg-border;
+  }
+
+  /* Soft accent wash — used sparingly behind hero */
+  .accent-wash {
+    background-image: radial-gradient(ellipse at 80% 20%, hsla(var(--accent), 0.16), transparent 60%);
+  }
+
+  /* Ember wash — subtle gradient */
+  .ember-wash {
+    background-image: radial-gradient(circle at 85% 25%, hsla(var(--ember), 0.18), transparent 50%);
+  }
+
+  /* Scan lines — tactical CRT overlay */
   .scanlines {
     background-image: repeating-linear-gradient(
       to bottom,
       transparent 0,
       transparent 3px,
-      rgba(255, 255, 255, 0.02) 3px,
-      rgba(255, 255, 255, 0.02) 4px
+      rgba(255, 255, 255, 0.018) 3px,
+      rgba(255, 255, 255, 0.018) 4px
     );
   }
 
+  /* Operator grid background */
   .grid-bg {
     background-image:
       linear-gradient(to right, hsla(var(--border), 0.6) 1px, transparent 1px),
       linear-gradient(to bottom, hsla(var(--border), 0.6) 1px, transparent 1px);
     background-size: 80px 80px;
   }
+
+  /* Subtle film grain — paired with scanlines for depth */
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.96 0 0 0 0 0.94 0 0 0 0 0.91 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
   }
 }
 

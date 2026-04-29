@@ -22,14 +22,16 @@ const config = {
         foreground: 'hsl(var(--foreground))',
         bg: 'hsl(var(--bg))',
         surface: 'hsl(var(--surface))',
+        steel: 'hsl(var(--steel))',
         ink: 'hsl(var(--ink))',
         mute: 'hsl(var(--mute))',
         accent: {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))'
         },
+        ember: 'hsl(var(--ember))',
         live: 'hsl(var(--live))',
-        hud: 'hsl(var(--hud))',
+        olive: 'hsl(var(--olive))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))'
@@ -63,14 +65,15 @@ const config = {
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-display)', 'var(--font-sans)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'var(--font-sub)', 'Impact', 'system-ui', 'sans-serif'],
+        sub: ['var(--font-sub)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-mono)', 'ui-monospace', 'monospace']
       },
       letterSpacing: {
         tightest: '-0.04em',
-        display: '-0.02em',
-        hud: '0.12em',
-        hudWide: '0.2em'
+        display: '-0.01em',
+        hud: '0.18em',
+        hudWide: '0.22em'
       },
       zIndex: {
         canvas: '0',

@@ -14,7 +14,16 @@
       "WebFetch(domain:open.spotify.com)",
       "WebFetch(domain:www.youtube.com)",
       "Bash(git config *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh repo *)",
+      "Bash(rm -f /tmp/playwright-test-audit.js)",
+      "Read(//tmp/**)",
+      "Bash(netstat -ano)",
+      "Bash(tasklist //FI \"PID eq 12824\")",
+      "Bash(taskkill *)",
+      "Bash(npm run *)",
+      "Bash(echo \"started, pid=$!\")"
     ]
   }
 }

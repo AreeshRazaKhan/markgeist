@@ -63,7 +63,7 @@ const FRAG = /* glsl */ `
   }
 `
 
-const LogoDisplacement = ({ src, className }) => {
+const LogoDisplacement = ({ src, className = '' }) => {
   const wrapRef = useRef(null)
   const reduced = useReducedMotion()
 
@@ -180,10 +180,6 @@ const LogoDisplacement = ({ src, className }) => {
 LogoDisplacement.propTypes = {
   src: PropTypes.string.isRequired,
   className: PropTypes.string
-}
-
-LogoDisplacement.defaultProps = {
-  className: ''
 }
 
 export default LogoDisplacement

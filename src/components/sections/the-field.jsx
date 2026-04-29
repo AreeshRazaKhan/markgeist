@@ -1,17 +1,50 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import ParticleField from '@/components/webgl/particle-field'
 import HudTag from '@/components/motion/hud-tag'
-import CornerBrackets from '@/components/motion/corner-brackets'
+import TextScramble from '@/components/motion/text-scramble'
 import SplitReveal from '@/components/motion/split-reveal'
+import ColorScrub from '@/components/motion/color-scrub'
+import Reveal from '@/components/motion/reveal'
+import Portrait from '@/components/motion/portrait'
+import useGsapContext from '@/hooks/use-gsap-context'
+import useReducedMotion from '@/hooks/use-reduced-motion'
 import { GUESTS } from '@/constants/guests'
-import { cn } from '@/lib/utils'
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 const TheField = () => {
-  const [active, setActive] = useState(0)
   const ref = useRef(null)
+  const reduced = useReducedMotion()
+
+  useGsapContext(
+    () => {
+      if (reduced) return
+      gsap.fromTo(
+        '[data-guest]',
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.06,
+          ease: 'expo.out',
+          scrollTrigger: {
+            trigger: ref.current,
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      )
+    },
+    [reduced],
+    ref
+  )
 
   return (
     <section
@@ -19,55 +52,45 @@ const TheField = () => {
       ref={ref}
       className="relative section-y overflow-hidden border-b border-border bg-bg"
     >
-      <div className="container-x grid grid-cols-12 gap-6">
-        <div className="col-span-12 mb-8 flex items-center gap-4 lg:col-span-12">
-          <HudTag color="accent">05 · THE FIELD</HudTag>
-          <span className="h-px flex-1 bg-border" />
-          <HudTag color="hud">{`${GUESTS.length} OPERATORS · GLOBAL`}</HudTag>
-        </div>
-
-        <div className="col-span-12 lg:col-span-8">
-          <div className="relative aspect-[16/10] w-full border border-border bg-surface">
-            <CornerBrackets color="accent" />
-            <ParticleField points={GUESTS} className="absolute inset-0" />
-            <div className="absolute left-4 top-4 flex items-center gap-2">
-              <HudTag color="hud">SAT · LIVE</HudTag>
-            </div>
-            <div className="absolute bottom-4 right-4 flex items-center gap-2">
-              <HudTag>{`LAT ${GUESTS[active].lat.toFixed(1)}° · LNG ${GUESTS[active].lng.toFixed(1)}°`}</HudTag>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-span-12 lg:col-span-4">
-          <h2 className="display-lg text-[clamp(36px,5vw,72px)] text-ink">
-            <SplitReveal className="block">THE PEOPLE</SplitReveal>
-            <SplitReveal className="block text-accent" delay={0.08}>ON THE WIRE.</SplitReveal>
+      <div className="container-x">
+        <Reveal className="mb-12 flex flex-col items-center gap-4 text-center lg:mb-16">
+          <HudTag color="accent">
+            <TextScramble text={`05 — GUESTS · ${GUESTS.length} OPERATORS`} />
+          </HudTag>
+          <h2 className="display-xl max-w-5xl text-balance text-[clamp(44px,6vw,104px)] text-ink">
+            <ColorScrub as="span" className="block">
+              <SplitReveal className="block">SHOWS THAT</SplitReveal>
+              <SplitReveal className="block italic text-accent" delay={0.08}>HOSTED OZ.</SplitReveal>
+            </ColorScrub>
           </h2>
-          <p className="mt-6 text-mute">
-            Operators, lawmakers, families. Click a node to lock the dossier.
+          <p className="max-w-xl text-mute">
+            {GUESTS.length} long-form interviews on the record. Pick a show to listen &mdash; every
+            link opens directly to the episode.
           </p>
+        </Reveal>
 
-          <ul className="mt-8 max-h-[420px] divide-y divide-border overflow-y-auto border border-border">
-            {GUESTS.map((g, i) => (
-              <li key={g.name}>
-                <button
-                  type="button"
-                  onClick={() => setActive(i)}
-                  className={cn(
-                    'flex w-full items-center justify-between px-4 py-3 text-left font-mono text-xs uppercase tracking-[0.16em] transition-colors',
-                    i === active ? 'bg-accent text-accent-foreground' : 'text-ink hover:bg-surface'
-                  )}
-                >
-                  <span>{g.name}</span>
-                  <span className={cn('text-[10px] tracking-[0.2em]', i === active ? 'text-accent-foreground/80' : 'text-mute')}>
-                    {g.role}
-                  </span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {GUESTS.map((g) => (
+            <li key={g.name} data-guest>
+              <a
+                href={g.url}
+                target="_blank"
+                rel="noreferrer"
+                className="group block"
+              >
+                <Portrait alt={`${g.name} cover art`} seed={g.name} ratio="square" />
+
+                <div className="mt-5">
+                  <HudTag color="accent">FEATURED</HudTag>
+                  <h3 className="mt-3 font-display text-2xl uppercase leading-tight tracking-display text-ink transition-colors duration-200 group-hover:text-accent lg:text-3xl">
+                    {g.name}
+                  </h3>
+                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-mute">{g.role}</p>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )
