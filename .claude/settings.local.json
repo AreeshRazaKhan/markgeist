@@ -23,7 +23,10 @@
       "Bash(tasklist //FI \"PID eq 12824\")",
       "Bash(taskkill *)",
       "Bash(npm run *)",
-      "Bash(echo \"started, pid=$!\")"
+      "Bash(echo \"started, pid=$!\")",
+      "Bash(git push *)",
+      "mcp__magic__21st_magic_component_inspiration",
+      "Bash(git check-ignore *)"
     ]
   }
 }

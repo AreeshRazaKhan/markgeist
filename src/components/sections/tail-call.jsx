@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import HudTag from '@/components/motion/hud-tag'
-import RGBSplit from '@/components/motion/rgb-split'
+import OutlineStretch from '@/components/motion/outline-stretch'
 import { MISSION_LINKS, NAV_LINKS, SOCIAL_LINKS, SUBSCRIBE_LINKS } from '@/constants/nav'
 import { LATEST_EPISODE } from '@/constants/episodes'
 
@@ -13,15 +13,15 @@ const TailCall = () => {
     <footer className="relative overflow-hidden border-t border-border bg-bg">
       {/* Giant overflowing wordmark — full bleed */}
       <div className="full-bleed relative pt-20 lg:pt-24">
-        <RGBSplit
+        <OutlineStretch
           as="h2"
-          aria-hidden
-          offset={18}
-          className="display-xl whitespace-nowrap text-center text-ink"
+          prefix="ON THE "
+          accent="RECORD."
+          stretch={1.18}
+          squeeze={0.92}
+          className="display-xl text-center"
           style={{ fontSize: 'clamp(88px, 16vw, 280px)', lineHeight: 0.86, letterSpacing: '-0.03em' }}
-        >
-          ON THE <span className="italic text-accent">RECORD.</span>
-        </RGBSplit>
+        />
       </div>
 
       <div className="container-x py-16 lg:py-20">
