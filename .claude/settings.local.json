@@ -37,7 +37,10 @@
       "Bash(/c/Users/Dev/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1-full_build/bin/ffmpeg.exe -y -i /c/Users/Dev/Downloads/screen-capture.webm -vf fps=4,scale=960:-1 /tmp/vidframes/f%03d.png)",
       "Bash(rm -rf /tmp/vidframes2)",
       "Bash(mkdir -p /tmp/vidframes2)",
-      "Bash(/c/Users/Dev/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1-full_build/bin/ffmpeg.exe -y -i '/c/Users/Dev/Downloads/screen-capture \\(1\\).webm' -vf fps=3,scale=1200:-1 /tmp/vidframes2/f%03d.png)"
+      "Bash(/c/Users/Dev/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1-full_build/bin/ffmpeg.exe -y -i '/c/Users/Dev/Downloads/screen-capture \\(1\\).webm' -vf fps=3,scale=1200:-1 /tmp/vidframes2/f%03d.png)",
+      "Bash(git remote *)",
+      "Bash(git -C \"/c/Users/Dev/Documents/GitHub/markgeist\" add .claude/settings.local.json src/components/motion/zoom-through.jsx src/components/nav/top-nav.jsx)",
+      "Bash(git -C \"/c/Users/Dev/Documents/GitHub/markgeist\" status)"
     ]
   }
 }

@@ -198,10 +198,6 @@ const ZoomThrough = ({
           {headingNode}
         </div>
 
-        {/* Corner HUD chrome */}
-        <span className="absolute left-6 top-6 z-[3] font-mono text-[10px] uppercase tracking-[0.22em] text-mute">
-          // INTERSTITIAL
-        </span>
       </div>
 
       {/* Wrapped section — sits below the sticky ripRef in flow. Its top

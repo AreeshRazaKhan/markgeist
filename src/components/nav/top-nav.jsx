@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
 import { NAV_LINKS } from '@/constants/nav'
 
@@ -35,13 +35,13 @@ const TopNav = () => {
             priority
             className="h-7 w-auto"
           />
-          <span className="hidden h-3 w-px bg-border md:block" />
-          <span className="hidden font-mono text-[10px] uppercase tracking-[0.22em] text-mute md:inline">
+          <span className="hidden h-3 w-px bg-border lg:block" />
+          <span className="hidden font-mono text-[10px] uppercase tracking-[0.22em] text-mute lg:inline">
             A personal podcast
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.slice(0, -1).map((l) => (
             <Link
               key={l.href}
@@ -53,7 +53,7 @@ const TopNav = () => {
           ))}
         </nav>
 
-        <div className="hidden items-center md:flex">
+        <div className="hidden items-center lg:flex">
           <Link
             href="#subscribe"
             className="border border-accent bg-transparent px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-accent transition-colors duration-200 hover:bg-accent hover:text-accent-foreground"
@@ -63,10 +63,11 @@ const TopNav = () => {
         </div>
 
         <Sheet>
-          <SheetTrigger className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink md:hidden">
+          <SheetTrigger className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink lg:hidden">
             MENU
           </SheetTrigger>
           <SheetContent side="right" className="w-[80vw] border-l border-border bg-bg">
+            <SheetTitle className="sr-only">Site navigation</SheetTitle>
             <nav className="mt-12 flex flex-col gap-6">
               {NAV_LINKS.map((l) => (
                 <Link
