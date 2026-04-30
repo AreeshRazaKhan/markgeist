@@ -8,6 +8,7 @@ import TheField from '@/components/sections/the-field'
 import IntelFeed from '@/components/sections/intel-feed'
 import OpenComms from '@/components/sections/open-comms'
 import TailCall from '@/components/sections/tail-call'
+import ZoomThrough from '@/components/motion/zoom-through'
 
 const HomePage = () => {
   return (
@@ -19,7 +20,9 @@ const HomePage = () => {
         <NowBroadcasting />
         <OperatorDossier />
         <MissionLogs />
-        <TheField />
+        <ZoomThrough prefix="SHOWS THAT " accent="HOSTED OZ.">
+          <TheField />
+        </ZoomThrough>
         <IntelFeed />
         <OpenComms />
       </main>

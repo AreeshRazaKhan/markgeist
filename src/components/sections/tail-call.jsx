@@ -28,9 +28,9 @@ const TailCall = () => {
         {/* Tactical sign-off */}
         <div className="mb-16 flex flex-col items-center gap-4 text-center">
           <HudTag color="accent">EOF · STATIC OUT</HudTag>
-          <p className="font-display text-3xl uppercase leading-tight tracking-display text-ink lg:text-5xl">
+          <p className="font-display text-3xl uppercase leading-[1.02] tracking-display text-ink lg:text-5xl">
             THANKS FOR LISTENING.
-            <span className="block italic text-accent">TALK SOON.</span>
+            <span className="block italic text-accent pb-[0.06em]">TALK SOON.</span>
           </p>
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-mute">
             &mdash; Mark &ldquo;Oz&rdquo; Geist · Recording from Colorado

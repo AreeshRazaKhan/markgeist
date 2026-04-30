@@ -83,7 +83,7 @@ const OpenComms = () => {
         <h2
           data-cta-wordmark
           className="full-bleed display-xl whitespace-nowrap text-center text-ink"
-          style={{ fontSize: 'clamp(72px, 12vw, 200px)', lineHeight: 0.86, letterSpacing: '-0.02em' }}
+          style={{ fontSize: 'clamp(72px, 12vw, 200px)', lineHeight: 0.88, letterSpacing: '-0.02em' }}
         >
           <ColorScrub as="span" className="block">
             <SplitReveal className="block">SAY HELLO,</SplitReveal>

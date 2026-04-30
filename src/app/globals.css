@@ -93,7 +93,7 @@
   .display-xl {
     @apply font-display uppercase;
     font-weight: 400;
-    line-height: 0.88;
+    line-height: 0.86;
     letter-spacing: -0.015em;
   }
   .display-lg {
@@ -101,6 +101,16 @@
     font-weight: 400;
     line-height: 0.92;
     letter-spacing: -0.01em;
+  }
+
+  /* Faux-italic Anton skews letter bottoms down-right; give descenders breathing
+     room so ancestor overflow:hidden doesn't shear them off. */
+  .display-xl .italic,
+  .display-lg .italic,
+  h1.display-xl .italic,
+  h2.display-xl .italic,
+  h2.display-lg .italic {
+    padding-bottom: 0.08em;
   }
 
   /* Full-bleed — break out of the container to viewport edges */

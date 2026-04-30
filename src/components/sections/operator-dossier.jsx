@@ -64,7 +64,7 @@ const OperatorDossier = () => {
           aria-hidden
           data-bg-wordmark
           className="display-xl whitespace-nowrap text-center text-ink/[0.04]"
-          style={{ fontSize: 'clamp(160px, 25vw, 400px)', lineHeight: 0.85, letterSpacing: '-0.04em' }}
+          style={{ fontSize: 'clamp(160px, 25vw, 400px)', lineHeight: 0.84, letterSpacing: '-0.04em' }}
         >
           ABOUT <span className="italic">OZ</span>
         </h2>
@@ -75,7 +75,7 @@ const OperatorDossier = () => {
           <HudTag color="accent">
             <TextScramble text="03 — ABOUT OZ" />
           </HudTag>
-          <h2 className="display-xl max-w-5xl text-balance text-[clamp(44px,6vw,104px)] text-ink">
+          <h2 className="display-xl max-w-5xl text-balance text-[clamp(44px,6vw,104px)] leading-[0.92] text-ink">
             <ColorScrub as="span" className="block">
               <SplitReveal className="block">A LIFETIME OF</SplitReveal>
               <SplitReveal className="block italic text-accent" delay={0.08}>VALOR ON FILE.</SplitReveal>

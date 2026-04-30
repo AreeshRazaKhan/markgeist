@@ -25,7 +25,7 @@ const NowBroadcasting = () => {
           <HudTag color="accent">
             <TextScramble text="02 — LATEST EPISODE" />
           </HudTag>
-          <h2 className="display-xl mt-4 max-w-5xl text-balance text-[clamp(44px,6vw,104px)] text-ink">
+          <h2 className="display-xl mt-4 max-w-5xl text-balance text-[clamp(44px,6vw,104px)] leading-[0.96] text-ink">
             The most recent <span className="italic text-accent">conversation.</span>
           </h2>
         </Reveal>

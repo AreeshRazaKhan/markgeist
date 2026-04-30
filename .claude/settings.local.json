@@ -26,7 +26,18 @@
       "Bash(echo \"started, pid=$!\")",
       "Bash(git push *)",
       "mcp__magic__21st_magic_component_inspiration",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "Bash(git commit *)",
+      "Bash(where ffmpeg *)",
+      "Bash(command -v ffmpeg)",
+      "PowerShell(Get-Command *)",
+      "PowerShell(winget install *)",
+      "Bash($FFPROBE *)",
+      "Bash(mkdir -p /tmp/vidframes)",
+      "Bash(/c/Users/Dev/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1-full_build/bin/ffmpeg.exe -y -i /c/Users/Dev/Downloads/screen-capture.webm -vf fps=4,scale=960:-1 /tmp/vidframes/f%03d.png)",
+      "Bash(rm -rf /tmp/vidframes2)",
+      "Bash(mkdir -p /tmp/vidframes2)",
+      "Bash(/c/Users/Dev/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1-full_build/bin/ffmpeg.exe -y -i '/c/Users/Dev/Downloads/screen-capture \\(1\\).webm' -vf fps=3,scale=1200:-1 /tmp/vidframes2/f%03d.png)"
     ]
   }
 }

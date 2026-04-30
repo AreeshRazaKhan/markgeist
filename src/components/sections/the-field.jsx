@@ -91,7 +91,7 @@ const TheField = () => {
     >
       {/* HUD label */}
       <div className="absolute left-6 top-8 z-30 lg:left-12 lg:top-10">
-        <HudTag color="accent">// 05 — SHOWS THAT HOSTED OZ</HudTag>
+        <HudTag color="accent">05 — SHOWS THAT HOSTED OZ</HudTag>
       </div>
 
       {/* Two-column layout */}
@@ -105,7 +105,7 @@ const TheField = () => {
             className="display-xl mt-4 text-balance text-ink"
             style={{
               fontSize: 'clamp(48px, 6.4vw, 116px)',
-              lineHeight: 0.86,
+              lineHeight: 0.96,
               letterSpacing: '-0.02em'
             }}
           >
@@ -201,9 +201,6 @@ const TheField = () => {
       {/* Bottom progress bar + scroll hint (desktop) */}
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 hidden h-px bg-border lg:block">
         <div ref={progressRef} className="h-full origin-left scale-x-0 bg-accent" />
-      </div>
-      <div className="absolute bottom-6 left-12 hidden font-mono text-[10px] uppercase tracking-[0.22em] text-mute lg:block">
-        Scroll → to advance
       </div>
     </section>
   )
