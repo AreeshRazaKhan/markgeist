@@ -1,10 +1,11 @@
 export const NAV_LINKS = [
-  { label: 'Latest', href: '#latest-episode' },
-  { label: 'Episodes', href: '#mission-logs' },
-  { label: 'About Oz', href: '#operator' },
-  { label: 'Guests', href: '#the-field' },
-  { label: 'Journal', href: '#intel-feed' },
-  { label: 'Subscribe', href: '#newsletter' }
+  { label: 'Episodes', href: '/episodes' },
+  { label: 'About Oz', href: '/about' },
+  { label: 'Guests', href: '/guests' },
+  { label: 'Journal', href: '/journal' },
+  { label: 'Press', href: '/press' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Subscribe', href: '/subscribe' }
 ]
 
 export const SUBSCRIBE_LINKS = [

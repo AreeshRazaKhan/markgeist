@@ -2,6 +2,8 @@ import { Anton, Bebas_Neue, Space_Grotesk, JetBrains_Mono } from 'next/font/goog
 
 import { Toaster } from '@/components/ui/sonner'
 import LenisProvider from '@/components/motion/lenis-provider'
+import TopNav from '@/components/nav/top-nav'
+import TailCall from '@/components/sections/tail-call'
 
 import './globals.css'
 
@@ -51,7 +53,11 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en" className={`${display.variable} ${sub.variable} ${sans.variable} ${mono.variable}`}>
       <body className="min-h-screen bg-bg text-ink antialiased" suppressHydrationWarning>
-        <LenisProvider>{children}</LenisProvider>
+        <LenisProvider>
+          <TopNav />
+          {children}
+          <TailCall />
+        </LenisProvider>
         <Toaster
           theme="dark"
           position="bottom-right"

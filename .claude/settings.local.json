@@ -40,7 +40,13 @@
       "Bash(/c/Users/Dev/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1-full_build/bin/ffmpeg.exe -y -i '/c/Users/Dev/Downloads/screen-capture \\(1\\).webm' -vf fps=3,scale=1200:-1 /tmp/vidframes2/f%03d.png)",
       "Bash(git remote *)",
       "Bash(git -C \"/c/Users/Dev/Documents/GitHub/markgeist\" add .claude/settings.local.json src/components/motion/zoom-through.jsx src/components/nav/top-nav.jsx)",
-      "Bash(git -C \"/c/Users/Dev/Documents/GitHub/markgeist\" status)"
+      "Bash(git -C \"/c/Users/Dev/Documents/GitHub/markgeist\" status)",
+      "Bash(git -C /c/Users/Dev/Documents/GitHub/markgeist commit -m ' *)",
+      "Bash(git -C \"/c/Users/Dev/Documents/GitHub/markgeist\" push)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" http://localhost:3000/episodes http://localhost:3000/episodes/srs-74 http://localhost:3000/about http://localhost:3000/guests http://localhost:3000/journal http://localhost:3000/journal/national-k9 http://localhost:3000/subscribe http://localhost:3000/contact http://localhost:3000/press http://localhost:3000/privacy http://localhost:3000/terms)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000__TRACKED_VAR__)",
+      "Bash(git -C \"/c/Users/Dev/Documents/GitHub/markgeist\" add .claude/settings.local.json src/app/error.jsx src/app/layout.jsx src/app/loading.jsx src/app/not-found.jsx src/app/page.jsx src/app/about src/app/contact src/app/episodes src/app/guests src/app/journal src/app/press src/app/privacy src/app/subscribe src/app/terms src/components/motion/hud-tag.jsx src/components/nav/top-nav.jsx src/components/nav/page-header.jsx src/components/sections/tail-call.jsx src/components/sections/the-field.jsx src/constants/nav.js)",
+      "Bash(git -C \"/c/Users/Dev/Documents/GitHub/markgeist\" status --short)"
     ]
   }
 }

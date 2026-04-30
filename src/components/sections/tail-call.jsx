@@ -131,7 +131,11 @@ const TailCall = () => {
       <div className="border-t border-border">
         <div className="container-x flex flex-wrap items-center justify-between gap-4 py-6">
           <HudTag color="mute">© 2026 Client Response LLC · All rights reserved</HudTag>
-          <HudTag color="mute">Privacy · Static Out</HudTag>
+          <div className="flex items-center gap-6 font-mono text-[10px] uppercase tracking-[0.2em] text-mute">
+            <Link href="/privacy" className="hover:text-accent">Privacy</Link>
+            <Link href="/terms" className="hover:text-accent">Terms</Link>
+            <Link href="/contact" className="hover:text-accent">Contact</Link>
+          </div>
         </div>
       </div>
     </footer>

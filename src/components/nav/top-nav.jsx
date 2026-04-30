@@ -55,7 +55,7 @@ const TopNav = () => {
 
         <div className="hidden items-center lg:flex">
           <Link
-            href="#subscribe"
+            href="/subscribe"
             className="border border-accent bg-transparent px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-accent transition-colors duration-200 hover:bg-accent hover:text-accent-foreground"
           >
             SUBSCRIBE →

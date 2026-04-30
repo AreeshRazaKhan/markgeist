@@ -13,8 +13,7 @@ const HudTag = ({ children, color = 'mute', className = '' }) => {
       : 'text-mute'
   return (
     <span className={cn('font-mono text-[10px] uppercase tracking-[0.2em]', tone, className)}>
-      <span className="text-accent">{'// '}</span>
-      <span>{children}</span>
+      {children}
     </span>
   )
 }

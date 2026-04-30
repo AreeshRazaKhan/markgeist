@@ -99,7 +99,7 @@ const TheField = () => {
         {/* LEFT — fixed heading + dynamic active info */}
         <div className="px-6 pb-12 pt-28 lg:flex-shrink-0 lg:px-12 lg:pb-0 lg:pt-0 lg:w-[44vw]">
           <p className="font-mono text-xs uppercase tracking-[0.22em] text-accent">
-            // FIELD · {GUESTS.length} STATIONS
+            FIELD · {GUESTS.length} STATIONS
           </p>
           <h2
             className="display-xl mt-4 text-balance text-ink"
