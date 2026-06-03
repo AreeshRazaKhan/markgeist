@@ -137,6 +137,11 @@ const TailCall = () => {
             <Link href="/contact" className="hover:text-accent">Contact</Link>
           </div>
         </div>
+        <div className="container-x border-t border-border/60 py-4">
+          <p className="text-[11px] leading-relaxed text-mute/80 lg:text-center">
+            Some images, audio, video, or written content may be created or enhanced using artificial intelligence (AI) tools.
+          </p>
+        </div>
       </div>
     </footer>
   )
