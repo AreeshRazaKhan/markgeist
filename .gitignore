@@ -6,3 +6,6 @@ build
 .DS_Store
 *.log
 .vercel
+
+# Playwright skill scratch files (regenerated per run)
+.claude/skills/playwright-skill/.temp-execution-*.js
