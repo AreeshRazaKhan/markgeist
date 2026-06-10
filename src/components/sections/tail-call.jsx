@@ -1,14 +1,39 @@
 'use client'
 
+import { useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import HudTag from '@/components/motion/hud-tag'
 import OutlineStretch from '@/components/motion/outline-stretch'
 import { MISSION_LINKS, NAV_LINKS, SOCIAL_LINKS, SUBSCRIBE_LINKS } from '@/constants/nav'
 import { LATEST_EPISODE } from '@/constants/episodes'
 
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
+
 const TailCall = () => {
+  const pathname = usePathname()
+
+  // The footer is rendered once in the root layout and persists across client
+  // navigations, but each route has a different scroll height. Recompute the
+  // wordmark's ScrollTrigger positions after the new route paints so the reveal
+  // doesn't freeze with stale start/end coordinates.
+  useEffect(() => {
+    let inner
+    const outer = window.requestAnimationFrame(() => {
+      inner = window.requestAnimationFrame(() => ScrollTrigger.refresh())
+    })
+    return () => {
+      window.cancelAnimationFrame(outer)
+      if (inner) window.cancelAnimationFrame(inner)
+    }
+  }, [pathname])
+
   return (
     <footer className="relative overflow-hidden border-t border-border bg-bg">
       {/* Giant overflowing wordmark — full bleed */}
@@ -19,6 +44,8 @@ const TailCall = () => {
           accent="RECORD."
           stretch={1.18}
           squeeze={0.92}
+          start="top bottom"
+          end="bottom bottom"
           className="display-xl text-center"
           style={{ fontSize: 'clamp(88px, 16vw, 280px)', lineHeight: 0.86, letterSpacing: '-0.03em' }}
         />

@@ -34,7 +34,15 @@ const useLenis = ({ enabled = true } = {}) => {
       ScrollTrigger.refresh()
     })
 
+    // Display fonts (Anton, etc.) can swap in after the first refresh, changing
+    // the height of giant wordmarks and invalidating scroll-trigger positions.
+    let active = true
+    document.fonts?.ready.then(() => {
+      if (active) ScrollTrigger.refresh()
+    })
+
     return () => {
+      active = false
       window.cancelAnimationFrame(refreshId)
       gsap.ticker.remove(tickerCb)
       lenis.destroy()
