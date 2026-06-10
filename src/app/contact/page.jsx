@@ -40,6 +40,17 @@ const ContactPage = () => {
           <HudTag color="accent">DIRECT</HudTag>
           <dl className="mt-6 space-y-5 font-mono text-[11px] uppercase tracking-[0.22em]">
             <div>
+              <dt className="text-mute">Email</dt>
+              <dd className="mt-2 text-ink">
+                <a
+                  href="mailto:info@theocast.com"
+                  className="lowercase underline decoration-accent underline-offset-4 hover:text-accent"
+                >
+                  info@theocast.com
+                </a>
+              </dd>
+            </div>
+            <div>
               <dt className="text-mute">Booking</dt>
               <dd className="mt-2 text-ink">
                 <a
