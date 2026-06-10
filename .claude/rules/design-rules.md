@@ -1,11 +1,11 @@
 ---
-description: Canonical design + brand rules for the Mark "Oz" Geist personal-podcast site. Loaded by brand-check + new-section skills. Single source of truth — supersedes the old brand-guide.md and brand-tokens.md.
+description: Canonical design + brand rules for The Oz Cast — the podcast hosted by Mark "Oz" Geist. Loaded by brand-check + new-section skills. Single source of truth — supersedes the old brand-guide.md and brand-tokens.md.
 globs: "*.jsx,*.js,*.css,*.html,*.md"
 ---
 
 # Mark Geist — Design & Brand Rules
 
-> Mark "Oz" Geist's personal podcast. Marine. Annex Security Team Benghazi survivor. Co-author of 13 Hours. Co-founder of Shadow Warriors Project. The interviews, on the record.
+> The Oz Cast — hosted by Mark "Oz" Geist. Marine. Annex Security Team Benghazi survivor. Co-author of 13 Hours. Co-founder of Shadow Warriors Project. The interviews, on the record.
 
 The site reads as a **dark editorial studio** in the Awwwards big-type / agency dialect, with a **tactical art direction** layered on top (driven by the logo: condensed bold italic "Oz" inside a sniper-scope reticle, hazard orange + pure white). It is **not** a bento dashboard, **not** a radio station, **not** a generic SaaS marketing page.
 
@@ -33,13 +33,13 @@ If a visual decision can't survive the test "would this read as Mark Geist's voi
 | Episode archive | Mission logs (legacy — only the section name retains it for character) |
 | About Oz | Operator dossier (legacy section name allowed) |
 | Guests | The field (legacy — allowed) |
-| Journal | Intel feed (legacy — allowed) |
+| Blog | Journal / Intel feed (both legacy — retired) |
 | Newsletter / Subscribe | Open Comms / Tune in / Comm channel |
 | Listen on Spotify | Tune in · Spotify |
 | Play `EP 06` | Transmit |
 | Host / Guest / Recorded date | Operator / Callsign / Coordinates |
 
-**Banned radio literalisms:** `frequency`, `MHZ`, `transmit`, `broadcast` (as a verb), `comm channel`, `signal control`, `cockpit`, `beacon`, `encrypt`, "tune in" as a primary CTA, rotating dial UI, fake-tuner readouts. The brand name **MARK GEIST** is the wordmark. Earlier "OZ FREQUENCY" framing is retired.
+**Banned radio literalisms:** `frequency`, `MHZ`, `transmit`, `broadcast` (as a verb), `comm channel`, `signal control`, `cockpit`, `beacon`, `encrypt`, "tune in" as a primary CTA, rotating dial UI, fake-tuner readouts. The public-facing brand is **THE OZ CAST** (the wordmark); **Mark "Oz" Geist** is the host. Earlier "MARK GEIST" wordmark framing and the older "OZ FREQUENCY" framing are both retired.
 
 **Mono labels carry data, never decoration:** `EP 06`, `02:15:00`, `JAN 19, 2026`, `CRITICAL`, `LIVE`. If a `// TAG` is purely flavor, delete it.
 
@@ -96,7 +96,7 @@ If a visual decision can't survive the test "would this read as Mark Geist's voi
 
 - **Section h2's** scale `clamp(44px, 6vw, 104px)`.
 - **Hero h1** scales `clamp(48px, 7vw, 116px)`.
-- **Giant wordmark moments** scale up to `clamp(96px, 18vw, 320px)` (hero `MARK GEIST`, footer `ON THE RECORD.`, newsletter `SAY HELLO, OPERATOR.`).
+- **Giant wordmark moments** scale up to `clamp(96px, 18vw, 320px)` (hero `THE OZ CAST`, footer `ON THE RECORD.`, newsletter `SAY HELLO, OPERATOR.`).
 - **Background-only wordmarks** (decorative, `aria-hidden`, `text-ink/[0.04]` opacity) up to `clamp(160px, 25vw, 400px)`.
 - All giant wordmarks use the `.full-bleed` utility (`width: 100vw; left: 50%; margin-left: -50vw`) so they break out of the 1280px container edge-to-edge.
 
@@ -110,7 +110,7 @@ If a visual decision can't survive the test "would this read as Mark Geist's voi
 - **Section padding:** 96px mobile, 144px desktop (`section-y` utility).
 - **Stacked full-width sections, not bento.** Each section is a vertical full-width unit. **No 12-col asymmetric mosaic.** Cover-art rows use 1 / 2 / 3-column grids only.
 - **Centered headlines are allowed.** The earlier "no centered hero" rule is retired — the editorial direction makes centered display headlines + centered CTAs + 4-tile cover-art row + giant overflow wordmark the canonical hero pattern.
-- **Giant wordmark moments** are required on: (a) the hero (`MARK GEIST`), (b) the newsletter CTA (`SAY HELLO, OPERATOR.`), (c) the footer (`ON THE RECORD.`). Optional: a low-opacity `text-ink/[0.04]` background wordmark behind the about-Oz section.
+- **Giant wordmark moments** are required on: (a) the hero (`THE OZ CAST`), (b) the newsletter CTA (`SAY HELLO, OPERATOR.`), (c) the footer (`ON THE RECORD.`). Optional: a low-opacity `text-ink/[0.04]` background wordmark behind the about-Oz section.
 - **Page IA** (canonical seven sections + footer):
 
 | # | Section | id | Component |
@@ -121,7 +121,7 @@ If a visual decision can't survive the test "would this read as Mark Geist's voi
 | 04 | About Oz | `#operator` | `operator-dossier.jsx` |
 | 05 | Episode archive | `#mission-logs` | `mission-logs.jsx` |
 | 06 | Guests | `#the-field` | `the-field.jsx` |
-| 07 | Journal | `#intel-feed` | `intel-feed.jsx` |
+| 07 | Blog | `#blog` | `intel-feed.jsx` |
 | 08 | Newsletter | `#newsletter` | `open-comms.jsx` |
 | ∞ | Footer | — | `tail-call.jsx` |
 

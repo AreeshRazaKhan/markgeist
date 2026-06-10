@@ -87,7 +87,7 @@ const TransmissionZero = () => {
 
       {/* Orbit badge — vertical-middle left, like Cunnet */}
       <div className="pointer-events-none absolute left-4 top-32 z-overlay text-ink lg:left-8 lg:top-1/3">
-        <OrbitBadge text="A PERSONAL PODCAST · MARK GEIST · 2026" size={140} duration={32} />
+        <OrbitBadge text="THE OZ CAST · HOSTED BY MARK GEIST · 2026" size={140} duration={32} />
       </div>
 
       {/* Top corner HUD strip */}
@@ -161,7 +161,7 @@ const TransmissionZero = () => {
           className="display-xl whitespace-nowrap text-center text-ink/95"
           style={{ fontSize: 'clamp(96px, 18vw, 320px)', letterSpacing: '-0.03em', lineHeight: 0.85 }}
         >
-          MARK <span className="italic text-accent">GEIST</span>
+          THE <span className="italic text-accent">OZ CAST</span>
         </RGBSplit>
       </div>
 

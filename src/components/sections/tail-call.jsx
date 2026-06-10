@@ -42,13 +42,14 @@ const TailCall = () => {
           <div className="col-span-12 lg:col-span-4">
             <Image
               src="/mark-geist-logo.png"
-              alt="Mark Geist"
+              alt="The Oz Cast — hosted by Mark Geist"
               width={1500}
               height={135}
               className="h-10 w-auto"
             />
             <p className="mt-6 max-w-sm text-sm text-mute">
-              Marine. Annex Security Team. Co-author of <em className="not-italic underline decoration-accent">13 Hours</em>.
+              The Oz Cast — hosted by Mark &ldquo;Oz&rdquo; Geist. Marine. Annex Security Team.
+              Co-author of <em className="not-italic underline decoration-accent">13 Hours</em>.
               Co-founder of Shadow Warriors Project.
             </p>
             <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-mute">

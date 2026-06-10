@@ -26,10 +26,10 @@ const TopNav = () => {
       )}
     >
       <div className="container-x flex h-16 items-center justify-between">
-        <Link href="/" className="group flex items-center gap-3" aria-label="Mark Geist — home">
+        <Link href="/" className="group flex items-center gap-3" aria-label="The Oz Cast — home">
           <Image
             src="/mark-geist-logo.png"
-            alt="Mark Geist"
+            alt="The Oz Cast — hosted by Mark Geist"
             width={1500}
             height={135}
             priority
@@ -37,12 +37,12 @@ const TopNav = () => {
           />
           <span className="hidden h-3 w-px bg-border lg:block" />
           <span className="hidden font-mono text-[10px] uppercase tracking-[0.22em] text-mute lg:inline">
-            A personal podcast
+            The Oz Cast
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
-          {NAV_LINKS.slice(0, -1).map((l) => (
+        <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
+          {NAV_LINKS.filter((l) => l.primary).map((l) => (
             <Link
               key={l.href}
               href={l.href}

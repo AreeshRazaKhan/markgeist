@@ -36,16 +36,16 @@ const mono = JetBrains_Mono({
 })
 
 export const metadata = {
-  title: 'Mark "Oz" Geist — Benghazi Survivor · 13 Hours · Personal Podcast',
+  title: 'The Oz Cast — Hosted by Mark "Oz" Geist · 13 Hours · Benghazi Survivor',
   description:
-    'Mark "Oz" Geist — U.S. Marine (1984–1996), Annex Security Team in Benghazi, co-author of 13 Hours, co-founder of Shadow Warriors Project. Conversations on the record. Credited with helping save 25+ Americans during the September 11–12, 2012 attack.',
-  metadataBase: new URL('https://markgeist.com'),
+    'The Oz Cast — hosted by Mark "Oz" Geist: U.S. Marine (1984–1996), Annex Security Team in Benghazi, co-author of 13 Hours, co-founder of Shadow Warriors Project. Long-form interviews, on the record. Credited with helping save 25+ Americans during the September 11–12, 2012 attack.',
+  metadataBase: new URL('https://theocast.com'),
   openGraph: {
-    title: 'Mark "Oz" Geist — Personal Podcast',
+    title: 'The Oz Cast — Hosted by Mark "Oz" Geist',
     description:
-      'Marine, Annex Security Team in Benghazi, co-author of 13 Hours, co-founder of Shadow Warriors Project.',
+      'Long-form interviews on the record with Mark "Oz" Geist — Marine, Annex Security Team in Benghazi, co-author of 13 Hours, co-founder of Shadow Warriors Project.',
     type: 'website',
-    url: 'https://markgeist.com'
+    url: 'https://theocast.com'
   }
 }
 
