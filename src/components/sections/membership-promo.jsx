@@ -37,7 +37,7 @@ const MembershipPromo = () => {
           </Reveal>
         </div>
 
-        <ul className="col-span-12 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:col-span-7">
+        <ul className="col-span-12 grid grid-cols-1 gap-4 self-center sm:grid-cols-3 lg:col-span-7">
           {MEMBERSHIP_TIERS.map((t) => (
             <li key={t.id}>
               <a

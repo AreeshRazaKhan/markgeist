@@ -1,10 +1,11 @@
 // The Oz Cast membership — three tiers. The podcast stays publicly accessible;
-// membership adds value, it is not a paywall. Tier numbering follows the brief
-// (Tier 3 = entry, Tier 1 = Operator Circle), presented entry → flagship.
+// membership adds value, it is not a paywall. Tiers ascend with price
+// (Tier 1 = $25 entry → Tier 3 = $100 Operator Circle flagship). Note: this
+// reverses the brief's original numbering at the client's request.
 export const MEMBERSHIP_TIERS = [
   {
-    id: 'tier-3',
-    tier: 'TIER 3',
+    id: 'tier-1',
+    tier: 'TIER 1',
     name: 'Supporting',
     price: 25,
     cadence: '/mo',
@@ -23,9 +24,9 @@ export const MEMBERSHIP_TIERS = [
     name: 'Inner Circle',
     price: 50,
     cadence: '/mo',
-    summary: 'Everything in Tier 3, plus the after-action room.',
+    summary: 'Everything in Tier 1, plus the after-action room.',
     benefits: [
-      'Everything in Tier 3',
+      'Everything in Tier 1',
       'Exclusive after-action breakdowns',
       'Monthly Q&A sessions',
       'Private community access'
@@ -33,8 +34,8 @@ export const MEMBERSHIP_TIERS = [
     featured: false
   },
   {
-    id: 'tier-1',
-    tier: 'TIER 1',
+    id: 'tier-3',
+    tier: 'TIER 3',
     name: 'Operator Circle',
     price: 100,
     cadence: '/mo',
