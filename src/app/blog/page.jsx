@@ -5,21 +5,22 @@ import PageHeader from '@/components/nav/page-header'
 import { DISPATCHES } from '@/constants/dispatches'
 
 export const metadata = {
-  title: 'Journal — Mark "Oz" Geist',
-  description: 'Field dispatches, op-eds, and notes from the record.'
+  title: 'Blog — The Oz Cast',
+  description:
+    'Episode breakdowns, op-eds, and written notes from The Oz Cast — read the rundown, then go straight to the full episode.'
 }
 
 const formatDate = (iso) =>
   new Date(iso).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
 
-const JournalPage = () => {
+const BlogPage = () => {
   return (
     <main className="relative">
       <PageHeader
-        eyebrow={`JOURNAL · ${DISPATCHES.length} DISPATCHES`}
-        title="DISPATCHES"
-        accent="FROM THE WIRE."
-        lead="Short-form notes between long-form episodes. Op-eds, field updates, and the occasional line in the sand."
+        eyebrow={`BLOG · ${DISPATCHES.length} POSTS`}
+        title="NOTES FROM"
+        accent="THE RECORD."
+        lead="Episode breakdowns, op-eds, and written cuts between long-form interviews. Read the rundown, then go straight to the full episode."
       />
 
       <section className="container-x pb-24 lg:pb-32">
@@ -27,7 +28,7 @@ const JournalPage = () => {
           {DISPATCHES.map((d) => (
             <li key={d.id}>
               <Link
-                href={`/journal/${d.id}`}
+                href={`/blog/${d.id}`}
                 className="group flex flex-col gap-4 py-8 transition-colors hover:bg-surface lg:flex-row lg:items-center lg:gap-12 lg:px-6"
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-mute lg:w-32 lg:flex-shrink-0">
@@ -57,4 +58,4 @@ const JournalPage = () => {
   )
 }
 
-export default JournalPage
+export default BlogPage

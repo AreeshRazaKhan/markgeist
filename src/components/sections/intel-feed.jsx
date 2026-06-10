@@ -87,22 +87,22 @@ const IntelFeed = () => {
 
   return (
     <section
-      id="intel-feed"
+      id="blog"
       ref={ref}
       className="relative section-y overflow-hidden border-b border-border bg-surface"
     >
       <div className="container-x">
         <Reveal className="mb-10 flex flex-col items-center gap-6 text-center lg:mb-14">
           <HudTag color="accent">
-            <TextScramble text="06 — JOURNAL" />
+            <TextScramble text="06 — BLOG" />
           </HudTag>
           <h2 className="display-xl max-w-5xl text-balance text-[clamp(44px,6vw,104px)] leading-[0.92] text-ink">
             <ColorScrub as="span" className="block">
-              <SplitReveal className="block">DISPATCHES</SplitReveal>
-              <SplitReveal className="block italic text-accent" delay={0.08}>FROM THE WIRE.</SplitReveal>
+              <SplitReveal className="block">NOTES FROM</SplitReveal>
+              <SplitReveal className="block italic text-accent" delay={0.08}>THE RECORD.</SplitReveal>
             </ColorScrub>
           </h2>
-          <ArrowButton variant="ghost">ALL DISPATCHES</ArrowButton>
+          <ArrowButton as="a" href="/blog" variant="ghost">READ THE BLOG</ArrowButton>
         </Reveal>
       </div>
 
@@ -113,9 +113,7 @@ const IntelFeed = () => {
           <a
             key={d.id}
             data-dispatch
-            href={d.url}
-            target="_blank"
-            rel="noreferrer"
+            href={`/blog/${d.id}`}
             className="group block"
           >
             <div className="flex items-center gap-3">
@@ -128,7 +126,7 @@ const IntelFeed = () => {
             </h3>
             <p className="mt-4 text-base text-mute">{d.excerpt}</p>
             <div className="mt-6 inline-flex items-center gap-2 border-b border-border pb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-accent transition-colors group-hover:border-accent group-hover:text-ember">
-              READ ENTRY
+              READ POST
               <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1">→</span>
             </div>
           </a>

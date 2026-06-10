@@ -20,7 +20,7 @@ const TermsPage = () => {
             Use of this site
           </h2>
           <p>
-            This site is the personal podcast and journal of Mark &ldquo;Oz&rdquo; Geist. By
+            This site is The Oz Cast — the podcast and blog of Mark &ldquo;Oz&rdquo; Geist. By
             using it you agree to use the content for personal, non-commercial purposes unless
             otherwise authorized in writing.
           </p>
@@ -29,7 +29,7 @@ const TermsPage = () => {
             Content & attribution
           </h2>
           <p>
-            Episode titles, summaries, and journal posts are © Mark Geist. Cover art for
+            Episode titles, summaries, and blog posts are © Mark Geist. Cover art for
             partner shows belongs to those shows. Quote, link, and embed responsibly — credit
             Mark Geist / 13 Hours where appropriate.
           </p>

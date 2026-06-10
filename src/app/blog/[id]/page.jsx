@@ -8,24 +8,24 @@ export const generateStaticParams = () => DISPATCHES.map((d) => ({ id: d.id }))
 
 export const generateMetadata = ({ params }) => {
   const d = DISPATCHES.find((x) => x.id === params.id)
-  if (!d) return { title: 'Dispatch not found — Mark "Oz" Geist' }
-  return { title: `${d.title} — Mark "Oz" Geist`, description: d.excerpt }
+  if (!d) return { title: 'Post not found — The Oz Cast' }
+  return { title: `${d.title} — The Oz Cast`, description: d.excerpt }
 }
 
 const formatDate = (iso) =>
   new Date(iso).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
 
-const DispatchPage = ({ params }) => {
+const BlogPostPage = ({ params }) => {
   const d = DISPATCHES.find((x) => x.id === params.id)
   if (!d) return notFound()
 
   return (
     <main className="container-x section-y">
       <Link
-        href="/journal"
+        href="/blog"
         className="font-mono text-[11px] uppercase tracking-[0.22em] text-mute transition-colors hover:text-accent"
       >
-        ← All dispatches
+        ← All posts
       </Link>
 
       <article className="mx-auto mt-12 max-w-3xl">
@@ -49,9 +49,9 @@ const DispatchPage = ({ params }) => {
 
         <div className="prose prose-invert mt-12 max-w-none border-t border-border pt-12 text-base text-ink">
           <p>
-            This dispatch was filed from the wire. The full version is available at the source
-            link below — short-form notes here are the headline; the long-form is in the
-            podcast and on the linked partner sites.
+            This is the written rundown. The full story is in the episode — the post here is the
+            headline and the takeaways; the long-form is in the podcast and on the linked partner
+            sites.
           </p>
         </div>
 
@@ -62,7 +62,7 @@ const DispatchPage = ({ params }) => {
             rel="noreferrer"
             className="mt-12 inline-flex items-center gap-3 border border-accent bg-accent px-5 py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-accent-foreground transition-colors hover:bg-ember hover:border-ember"
           >
-            Read the full dispatch ↗
+            Read the full post ↗
           </a>
         )}
       </article>
@@ -70,4 +70,4 @@ const DispatchPage = ({ params }) => {
   )
 }
 
-export default DispatchPage
+export default BlogPostPage
