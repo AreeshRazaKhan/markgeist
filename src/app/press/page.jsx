@@ -92,7 +92,7 @@ const PressPage = () => {
             <HudTag color="accent">ASSETS</HudTag>
             <ul className="mt-6 space-y-3 text-sm text-mute">
               <li>— Headshots: available on request via the contact form</li>
-              <li>— Logo: /mark-geist-logo.png (transparent PNG)</li>
+              <li>— Logo: /the-oz-cast-logo.png (transparent PNG)</li>
               <li>— Podcast cover art: by request</li>
             </ul>
           </div>

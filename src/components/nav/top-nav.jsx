@@ -28,16 +28,16 @@ const TopNav = () => {
       <div className="container-x flex h-16 items-center justify-between">
         <Link href="/" className="group flex items-center gap-3" aria-label="The Oz Cast — home">
           <Image
-            src="/mark-geist-logo.png"
+            src="/the-oz-cast-logo.png"
             alt="The Oz Cast — hosted by Mark Geist"
-            width={1500}
-            height={135}
+            width={734}
+            height={124}
             priority
             className="h-7 w-auto"
           />
           <span className="hidden h-3 w-px bg-border lg:block" />
           <span className="hidden font-mono text-[10px] uppercase tracking-[0.22em] text-mute lg:inline">
-            The Oz Cast
+            Hosted by Mark Geist
           </span>
         </Link>
 

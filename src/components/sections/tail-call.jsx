@@ -66,10 +66,10 @@ const TailCall = () => {
           {/* Brand block */}
           <div className="col-span-12 lg:col-span-4">
             <Image
-              src="/mark-geist-logo.png"
+              src="/the-oz-cast-logo.png"
               alt="The Oz Cast — hosted by Mark Geist"
-              width={1500}
-              height={135}
+              width={734}
+              height={124}
               className="h-10 w-auto"
             />
             <p className="mt-6 max-w-sm text-sm text-mute">

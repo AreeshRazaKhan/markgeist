@@ -155,7 +155,7 @@ If a visual decision can't survive the test "would this read as Mark Geist's voi
 - Focus state: `focus-visible:ring-2 focus-visible:ring-accent ring-offset-2 ring-offset-bg`.
 
 ### Logo
-- File: `/public/mark-geist-logo.png` — wordmark `MARK · [Oz reticle] · GEIST`, transparent PNG.
+- File: `/public/the-oz-cast-logo.png` — `OZ` wordmark with the sniper-scope reticle as the `O`, hazard orange, transparent PNG.
 - Use the actual image, never re-render via type. Top-nav: `h-7`. Footer: `h-10`.
 
 ---
@@ -243,7 +243,7 @@ The motion stack — every text/scroll animation must come from one of these com
 | `src/app/layout.jsx` | Font loading via `next/font` (Anton + Bebas Neue + Space Grotesk + JetBrains Mono) |
 | `src/components/motion/` | All motion components — single source for the animation vocabulary |
 | `src/constants/episodes.js` / `nav.js` / `guests.js` / `dispatches.js` | Content data, podcast-vocabulary fields only |
-| `public/mark-geist-logo.png` | The brand mark — no other logo asset |
+| `public/the-oz-cast-logo.png` | The brand mark — no other logo asset |
 | `.claude/rules/design-rules.md` | **THIS FILE** — canonical rules. Loaded by `brand-check`, `new-section`, and `init` skills |
 
 The legacy `brand-guide.md` and `.claude/context/brand-tokens.md` are deprecated. This file supersedes both.
