@@ -39,13 +39,13 @@ export const metadata = {
   title: 'The Oz Cast — Hosted by Mark "Oz" Geist · 13 Hours · Benghazi Survivor',
   description:
     'The Oz Cast — hosted by Mark "Oz" Geist: U.S. Marine (1984–1996), Annex Security Team in Benghazi, co-author of 13 Hours, co-founder of Shadow Warriors Project. Long-form interviews, on the record. Credited with helping save 25+ Americans during the September 11–12, 2012 attack.',
-  metadataBase: new URL('https://theocast.com'),
+  metadataBase: new URL('https://theozcast.com'),
   openGraph: {
     title: 'The Oz Cast — Hosted by Mark "Oz" Geist',
     description:
       'Long-form interviews on the record with Mark "Oz" Geist — Marine, Annex Security Team in Benghazi, co-author of 13 Hours, co-founder of Shadow Warriors Project.',
     type: 'website',
-    url: 'https://theocast.com'
+    url: 'https://theozcast.com'
   }
 }
 

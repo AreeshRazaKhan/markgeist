@@ -43,10 +43,10 @@ const ContactPage = () => {
               <dt className="text-mute">Email</dt>
               <dd className="mt-2 text-ink">
                 <a
-                  href="mailto:info@theocast.com"
+                  href="mailto:info@theozcast.com"
                   className="lowercase underline decoration-accent underline-offset-4 hover:text-accent"
                 >
-                  info@theocast.com
+                  info@theozcast.com
                 </a>
               </dd>
             </div>
