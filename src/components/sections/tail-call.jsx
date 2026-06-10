@@ -44,8 +44,6 @@ const TailCall = () => {
           accent="RECORD."
           stretch={1.18}
           squeeze={0.92}
-          start="top bottom"
-          end="bottom bottom"
           className="display-xl text-center"
           style={{ fontSize: 'clamp(88px, 16vw, 280px)', lineHeight: 0.86, letterSpacing: '-0.03em' }}
         />
