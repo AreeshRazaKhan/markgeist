@@ -88,7 +88,7 @@ const MembershipPage = () => {
                 key={c}
                 className="flex items-center gap-3 bg-bg px-5 py-6 font-mono text-[11px] uppercase tracking-[0.2em] text-ink"
               >
-                <span aria-hidden className="text-accent">//</span>
+                <span aria-hidden className="text-accent">{'//'}</span>
                 {c}
               </li>
             ))}

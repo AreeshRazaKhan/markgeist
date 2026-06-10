@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 const ArrowButton = forwardRef(
   ({ as: Tag = 'button', variant = 'primary', className = '', children, ...rest }, ref) => {
     const base =
-      'group relative inline-flex items-center gap-3 px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] transition-colors duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]'
+      'group relative inline-flex items-center gap-3 px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] transition-colors duration-200 ease-ignite'
     const tones = {
       primary: 'bg-accent text-accent-foreground hover:bg-ink hover:text-bg',
       ghost: 'border border-border text-ink hover:border-accent hover:text-accent',
@@ -17,7 +17,7 @@ const ArrowButton = forwardRef(
     return (
       <Tag ref={ref} className={cn(base, tones[variant], className)} {...rest}>
         <span>{children}</span>
-        <span className="transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
+        <span className="transition-transform duration-200 ease-ignite group-hover:translate-x-1">
           →
         </span>
       </Tag>
