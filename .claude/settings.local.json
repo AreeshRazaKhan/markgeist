@@ -47,7 +47,17 @@
       "Bash(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000__TRACKED_VAR__)",
       "Bash(git -C \"/c/Users/Dev/Documents/GitHub/markgeist\" add .claude/settings.local.json src/app/error.jsx src/app/layout.jsx src/app/loading.jsx src/app/not-found.jsx src/app/page.jsx src/app/about src/app/contact src/app/episodes src/app/guests src/app/journal src/app/press src/app/privacy src/app/subscribe src/app/terms src/components/motion/hud-tag.jsx src/components/nav/top-nav.jsx src/components/nav/page-header.jsx src/components/sections/tail-call.jsx src/components/sections/the-field.jsx src/constants/nav.js)",
       "Bash(git -C \"/c/Users/Dev/Documents/GitHub/markgeist\" status --short)",
-      "Bash(powershell *)"
+      "Bash(powershell *)",
+      "PowerShell(Move-Item *)",
+      "PowerShell($c = Get-NetTCPConnection -LocalPort 3001 -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { $c.OwningProcess | Select-Object -Unique | ForEach-Object { Write-Output \"Stopping PID $_\"; Stop-Process -Id $_ -Force } } else { Write-Output \"No listener on 3001\" })",
+      "Bash(echo \"exit:$?\")",
+      "PowerShell(Copy-Item *)",
+      "PowerShell(npx --no-install playwright --version; node -e \"try{console.log\\(require.resolve\\('playwright'\\)\\)}catch\\(e\\){console.log\\('NOT-RESOLVED'\\)}\")",
+      "PowerShell(Get-ChildItem .claude\\\\skills\\\\playwright-skill | Select-Object Name; node -e \"try{console.log\\(require.resolve\\('playwright',{paths:['C:/Users/Dev/Documents/GitHub/markgeist/.claude/skills/playwright-skill']}\\)\\)}catch\\(e\\){console.log\\('NOT-RESOLVED'\\)}\")",
+      "PowerShell(node social-posts\\\\qa.js)",
+      "PowerShell(npm run *)",
+      "PowerShell(Start-Process \"http://localhost:3001/social-posts\")",
+      "PowerShell(git *)"
     ]
   }
 }
