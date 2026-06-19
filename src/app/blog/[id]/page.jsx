@@ -8,8 +8,8 @@ export const generateStaticParams = () => DISPATCHES.map((d) => ({ id: d.id }))
 
 export const generateMetadata = ({ params }) => {
   const d = DISPATCHES.find((x) => x.id === params.id)
-  if (!d) return { title: 'Post not found — The Oz Cast' }
-  return { title: `${d.title} — The Oz Cast`, description: d.excerpt }
+  if (!d) return { title: 'Post not found The Oz Cast' }
+  return { title: `${d.title} The Oz Cast`, description: d.excerpt }
 }
 
 const formatDate = (iso) =>

@@ -9,7 +9,7 @@ export const generateStaticParams = () => EPISODES.map((ep) => ({ id: ep.id }))
 
 export const generateMetadata = ({ params }) => {
   const ep = EPISODES.find((e) => e.id === params.id)
-  if (!ep) return { title: 'Episode not found — Mark "Oz" Geist' }
+  if (!ep) return { title: 'Episode not found Mark "Oz" Geist' }
   return {
     title: `${ep.title} — Mark "Oz" Geist`,
     description: ep.summary
