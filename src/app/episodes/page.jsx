@@ -16,7 +16,7 @@ const EpisodesPage = () => {
   return (
     <main className="relative">
       <PageHeader
-        eyebrow={`01 — EPISODE ARCHIVE · ${EPISODES.length} ON FILE`}
+        eyebrow={`EPISODE ARCHIVE · ${EPISODES.length} ON FILE`}
         title="EVERY EPISODE."
         accent="UNCUT."
         lead={

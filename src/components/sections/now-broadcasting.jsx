@@ -23,7 +23,7 @@ const NowBroadcasting = () => {
       <div className="container-x">
         <Reveal className="mb-12 flex flex-col items-center text-center lg:mb-16">
           <HudTag color="accent">
-            <TextScramble text="02 — LATEST EPISODE" />
+            <TextScramble text="LATEST EPISODE" />
           </HudTag>
           <h2 className="display-xl mt-4 max-w-5xl text-balance text-[clamp(44px,6vw,104px)] leading-[0.96] text-ink">
             The most recent <span className="italic text-accent">conversation.</span>

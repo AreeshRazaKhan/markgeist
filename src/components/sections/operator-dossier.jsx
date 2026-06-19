@@ -75,7 +75,7 @@ const OperatorDossier = () => {
       <div className="container-x relative z-content">
         <Reveal className="mb-12 flex flex-col items-center gap-4 text-center lg:mb-16">
           <HudTag color="accent">
-            <TextScramble text="03 — ABOUT OZ" />
+            <TextScramble text="ABOUT OZ" />
           </HudTag>
           <h2 className="display-xl max-w-5xl text-balance text-[clamp(44px,6vw,104px)] leading-[0.92] text-ink">
             <ColorScrub as="span" className="block">

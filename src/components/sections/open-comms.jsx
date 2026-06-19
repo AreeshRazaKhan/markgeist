@@ -65,7 +65,7 @@ const OpenComms = () => {
       <div className="container-x relative z-content">
         <Reveal className="mb-10 flex flex-col items-center gap-6 text-center lg:mb-12">
           <HudTag color="accent">
-            <TextScramble text="07 — NEWSLETTER" />
+            <TextScramble text="NEWSLETTER" />
           </HudTag>
           <div className="flex flex-col items-center gap-2">
             <HudTag color="mute">LISTENERS</HudTag>
