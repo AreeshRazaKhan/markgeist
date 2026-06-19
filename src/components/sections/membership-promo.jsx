@@ -20,14 +20,15 @@ const MembershipPromo = () => {
           <Reveal className="flex flex-col gap-6">
             <HudTag color="accent">MEMBERSHIP</HudTag>
             <h2 className="display-lg text-[clamp(40px,5.5vw,88px)] text-ink">
-              <SplitReveal as="span" className="block">THE PODCAST&apos;S FREE.</SplitReveal>
+              <SplitReveal as="span" className="block">GO DEEPER THAN</SplitReveal>
               <SplitReveal as="span" className="block italic text-accent" delay={0.08}>
-                THE BACK ROOM ISN&apos;T.
+                THE PUBLIC FEED.
               </SplitReveal>
             </h2>
             <p className="max-w-md text-base text-mute">
-              Early access, ad-free cuts, after-action breakdowns, and the Operator Circle. Three tiers.
-              No paywall on the feed — just more for the ones who stand the post.
+              The Oz Cast stays open to everyone. Members get the deeper record: early access,
+              ad-free cuts, bonus clips, after-action breakdowns, Q&amp;A sessions, behind-the-scenes
+              content, and priority access to future live events.
             </p>
             <div className="flex flex-wrap gap-3">
               <ArrowButton as="a" href="/membership" variant="primary">

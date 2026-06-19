@@ -16,9 +16,9 @@ const MembershipPage = () => {
     <main className="relative">
       <PageHeader
         eyebrow="MEMBERSHIP"
-        title="STAND THE"
-        accent="POST."
-        lead="The podcast stays public — always. Membership isn't a paywall; it's the room behind the room. Early access, ad-free cuts, after-action breakdowns, and the Operator Circle."
+        title="GO BEYOND"
+        accent="THE PUBLIC FEED."
+        lead="The Oz Cast stays public. Membership gives listeners deeper access: early episodes, ad-free cuts, bonus clips, after-action breakdowns, Q&A sessions, behind-the-scenes content, training discounts, and priority access to future live events."
       />
 
       <section className="container-x grid grid-cols-1 gap-6 pb-24 md:grid-cols-3 lg:gap-8">
