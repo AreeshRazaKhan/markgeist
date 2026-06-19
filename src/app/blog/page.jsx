@@ -20,7 +20,22 @@ const BlogPage = () => {
         eyebrow={`BLOG · ${DISPATCHES.length} POSTS`}
         title="NOTES FROM"
         accent="THE RECORD."
-        lead="Episode breakdowns, op-eds, and written cuts between long-form interviews. Read the rundown, then go straight to the full episode."
+        lead={
+          <>
+            Episode breakdowns, op-eds, and written cuts between long-form interviews. Read the
+            rundown, then go straight to the full episode.
+            <span className="mt-4 block text-ink">
+              Want the next breakdown first? Join the{' '}
+              <Link
+                href="/subscribe"
+                className="text-accent underline decoration-accent underline-offset-4 transition-colors hover:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              >
+                newsletter
+              </Link>
+              .
+            </span>
+          </>
+        }
       />
 
       <section className="container-x pb-24 lg:pb-32">
