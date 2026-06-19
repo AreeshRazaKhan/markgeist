@@ -9,7 +9,7 @@ export const EPISODES = [
     threat: 'CRITICAL',
     recordedAt: 'Jan 19, 2026',
     summary:
-      'Near-death moments, spiritual awakening, and the work that came after — Shadow Warriors, service dogs, retreats. The longest-form interview Oz has given.',
+      'Near-death moments, spiritual awakening, and the work that came after: Shadow Warriors, service dogs, retreats. The longest-form interview Oz has given.',
     status: 'LATEST',
     publishedAt: '2026-01-19',
     listenUrl:
@@ -42,7 +42,7 @@ export const EPISODES = [
     threat: 'CLASSIFIED',
     recordedAt: 'Feb 11, 2024',
     summary:
-      'The five-second account that contradicts physics — what Oz saw on the rooftop, told without flourish.',
+      'The five-second account that contradicts physics. What Oz saw on the rooftop, told without flourish.',
     status: 'AIRED',
     publishedAt: '2024-02-11',
     youtubeId: 'Dh6f9hIQgnA',
@@ -58,7 +58,7 @@ export const EPISODES = [
     threat: 'ELEVATED',
     recordedAt: 'Apr 22, 2020',
     summary:
-      'Walks through the night in Benghazi from a financial-analyst&apos;s lens — what cost America, what was avoidable, what wasn&apos;t.',
+      'Walks through the night in Benghazi from a financial-analyst&apos;s lens: what cost America, what was avoidable, what wasn&apos;t.',
     status: 'AIRED',
     publishedAt: '2020-04-22',
     youtubeId: '4EjG8WyPQB0',
@@ -90,7 +90,7 @@ export const EPISODES = [
     threat: 'ELEVATED',
     recordedAt: 'Nov 5, 2023',
     summary:
-      'The annex team in their own words — Oz on what the movie compressed and what it left on the cutting-room floor.',
+      'The annex team in their own words. Oz on what the movie compressed and what it left on the cutting-room floor.',
     status: 'AIRED',
     publishedAt: '2023-11-05',
     youtubeId: '1t9pDhdkK0U',

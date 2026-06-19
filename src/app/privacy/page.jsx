@@ -20,7 +20,7 @@ const PrivacyPage = () => {
             What we collect
           </h2>
           <p>
-            This site collects only what you submit directly — your name, email, and message
+            This site collects only what you submit directly: your name, email, and message
             via the contact form. We do not sell or share your information with third parties
             for marketing.
           </p>
@@ -54,7 +54,7 @@ const PrivacyPage = () => {
             Contact
           </h2>
           <p>
-            Questions or requests about your data — use the{' '}
+            Questions or requests about your data, use the{' '}
             <a href="/contact" className="underline decoration-accent underline-offset-4 hover:text-accent">
               contact form
             </a>

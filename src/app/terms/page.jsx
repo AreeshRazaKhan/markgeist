@@ -20,7 +20,7 @@ const TermsPage = () => {
             Use of this site
           </h2>
           <p>
-            This site is The Oz Cast — the podcast and blog of Mark &ldquo;Oz&rdquo; Geist. By
+            This site is The Oz Cast, the podcast and blog of Mark &ldquo;Oz&rdquo; Geist. By
             using it you agree to use the content for personal, non-commercial purposes unless
             otherwise authorized in writing.
           </p>
@@ -30,7 +30,7 @@ const TermsPage = () => {
           </h2>
           <p>
             Episode titles, summaries, and blog posts are © Mark Geist. Cover art for
-            partner shows belongs to those shows. Quote, link, and embed responsibly — credit
+            partner shows belongs to those shows. Quote, link, and embed responsibly. Credit
             Mark Geist / 13 Hours where appropriate.
           </p>
 
@@ -39,7 +39,7 @@ const TermsPage = () => {
           </h2>
           <p>
             Nothing on this site constitutes legal, medical, financial, or military advice.
-            Episodes are conversations on the record — they are not advisories.
+            Episodes are conversations on the record. They are not advisories.
           </p>
 
           <h2 className="font-display text-2xl uppercase tracking-display text-ink">

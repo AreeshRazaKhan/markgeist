@@ -49,7 +49,7 @@ const BlogPostPage = ({ params }) => {
 
         <div className="prose prose-invert mt-12 max-w-none border-t border-border pt-12 text-base text-ink">
           <p>
-            This is the written rundown. The full story is in the episode — the post here is the
+            This is the written rundown. The full story is in the episode. The post here is the
             headline and the takeaways; the long-form is in the podcast and on the linked partner
             sites.
           </p>

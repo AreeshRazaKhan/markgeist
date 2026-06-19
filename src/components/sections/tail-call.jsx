@@ -73,7 +73,7 @@ const TailCall = () => {
               className="h-10 w-auto"
             />
             <p className="mt-6 max-w-sm text-sm text-mute">
-              The Oz Cast — hosted by Mark &ldquo;Oz&rdquo; Geist. Marine. Annex Security Team.
+              The Oz Cast, hosted by Mark &ldquo;Oz&rdquo; Geist. Marine. Annex Security Team.
               Co-author of <em className="not-italic underline decoration-accent">13 Hours</em>.
               Co-founder of Shadow Warriors Project.
             </p>

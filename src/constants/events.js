@@ -7,7 +7,7 @@ export const EVENT_TRACKS = [
     label: 'SPEAKING',
     title: 'Keynotes & Speaking',
     blurb:
-      'Service, recovery, leadership, and post-traumatic resilience — on the record, no PR layer. Booked through Team Never Quit.',
+      'Service, recovery, leadership, and post-traumatic resilience, on the record, no PR layer. Booked through Team Never Quit.',
     cta: { label: 'Booking · Team Never Quit', href: 'https://teamneverquit.com/speakers/mark-geist/', external: true }
   },
   {

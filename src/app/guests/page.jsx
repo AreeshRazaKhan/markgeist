@@ -16,7 +16,7 @@ const GuestsPage = () => {
         eyebrow={`THE FIELD · ${GUESTS.length} STATIONS`}
         title="SHOWS THAT"
         accent="HOSTED OZ."
-        lead={`${GUESTS.length} long-form interviews on the record. Pick a show — every link opens directly to the episode.`}
+        lead={`${GUESTS.length} long-form interviews on the record. Pick a show. Every link opens directly to the episode.`}
       />
 
       <section className="container-x pb-24 lg:pb-32">

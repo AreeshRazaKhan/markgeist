@@ -16,7 +16,7 @@ const EventsPage = () => {
         eyebrow="EVENTS"
         title="IN THE"
         accent="ROOM."
-        lead="Keynotes, live recordings, and training. Dates drop to members and the newsletter first. No PR layer — the booking line goes where it needs to go."
+        lead="Keynotes, live recordings, and training. Dates drop to members and the newsletter first. No PR layer. The booking line goes where it needs to go."
       />
 
       <section className="container-x grid grid-cols-1 gap-6 pb-24 lg:grid-cols-3 lg:gap-8">

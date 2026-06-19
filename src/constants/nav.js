@@ -47,7 +47,7 @@ export const SOCIAL_LINKS = [
 
 export const MISSION_LINKS = [
   { label: 'Shadow Warriors Project', href: 'https://shadowwarriorsproject.org/about-mark-oz-geist/' },
-  { label: '13 Hours — The Book', href: 'https://www.amazon.com/13-Hours-Inside-Account-Happened/dp/1455582298' },
+  { label: '13 Hours: The Book', href: 'https://www.amazon.com/13-Hours-Inside-Account-Happened/dp/1455582298' },
   { label: 'Speaking & Booking', href: 'https://teamneverquit.com/speakers/mark-geist/' },
   { label: 'Markgeist.com', href: 'https://markgeist.com/' }
 ]

@@ -91,7 +91,7 @@ const TheField = () => {
     >
       {/* HUD label */}
       <div className="absolute left-6 top-8 z-30 lg:left-12 lg:top-10">
-        <HudTag color="accent">05 — SHOWS THAT HOSTED OZ</HudTag>
+        <HudTag color="accent">SHOWS THAT HOSTED OZ</HudTag>
       </div>
 
       {/* Two-column layout */}
@@ -113,7 +113,7 @@ const TheField = () => {
             <span className="block italic text-accent">HOSTED OZ.</span>
           </h2>
           <p className="mt-6 max-w-md text-mute">
-            {GUESTS.length} long-form interviews on the record. Pick a show to listen — every link
+            {GUESTS.length} long-form interviews on the record. Pick a show to listen. Every link
             opens directly to the episode.
           </p>
 

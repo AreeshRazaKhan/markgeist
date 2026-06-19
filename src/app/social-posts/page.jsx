@@ -41,7 +41,7 @@ const SocialPostsPage = () => {
         eyebrow="INTERNAL · UNLISTED"
         title="SOCIAL"
         accent="POSTS."
-        lead="Live previews of the social post designs. Each card renders the actual HTML file — click any card to open it full-size in a new tab."
+        lead="Live previews of the social post designs. Each card renders the actual HTML file. Click any card to open it full-size in a new tab."
       />
 
       <section aria-labelledby="feed-posts" className="container-x pb-24 lg:pb-32">

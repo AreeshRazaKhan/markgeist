@@ -29,14 +29,14 @@ export const PRESS_APPEARANCES = [
     id: 'tnq',
     outlet: 'TEAM NEVER QUIT',
     kind: 'SPEAKING',
-    title: 'Speaker profile — service, recovery, and the work after Benghazi',
+    title: 'Speaker profile: service, recovery, and the work after Benghazi',
     href: 'https://teamneverquit.com/speakers/mark-geist/'
   },
   {
     id: 'swp',
     outlet: 'SHADOW WARRIORS PROJECT',
     kind: 'MISSION',
-    title: 'Co-founder — K9 service dogs, retreats, and direct aid for contractors',
+    title: 'Co-founder: K9 service dogs, retreats, and direct aid for contractors',
     href: 'https://shadowwarriorsproject.org/about-mark-oz-geist/'
   }
 ]

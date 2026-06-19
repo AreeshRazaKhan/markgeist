@@ -55,7 +55,7 @@ const MembershipPage = () => {
             <ul className="mt-6 flex-1 space-y-3 border-t border-border pt-6 text-sm text-ink">
               {t.benefits.map((b) => (
                 <li key={b} className="flex gap-3">
-                  <span aria-hidden className="text-accent">—</span>
+                  <span aria-hidden className="text-accent">·</span>
                   <span>{b}</span>
                 </li>
               ))}

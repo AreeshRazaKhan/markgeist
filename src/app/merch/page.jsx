@@ -20,7 +20,7 @@ const MerchPage = () => {
         eyebrow="MERCH"
         title="WEAR THE"
         accent="STANDARD."
-        lead="Gear runs through Nine Line Apparel — American-made, veteran-owned. No carts to babysit here; the link takes you straight to the line."
+        lead="Gear runs through Nine Line Apparel: American-made, veteran-owned. No carts to babysit here; the link takes you straight to the line."
       />
 
       <section className="container-x pb-24">
@@ -38,7 +38,7 @@ const MerchPage = () => {
               <span className="block italic text-accent pb-[0.06em]">APPAREL.</span>
             </p>
             <p className="max-w-md text-sm text-mute">
-              Veteran-owned, American-made apparel and gear. Shop the full line on Nine Line — orders,
+              Veteran-owned, American-made apparel and gear. Shop the full line on Nine Line. Orders,
               shipping, and returns are handled there.
             </p>
             <ArrowButton as="span" variant="primary">
