@@ -21,7 +21,7 @@ const SocialProof = () => {
           <h2 className="display-lg max-w-3xl text-balance text-[clamp(40px,6vw,96px)] text-ink">
             <SplitReveal as="span" className="block">ON THE RECORD,</SplitReveal>
             <SplitReveal as="span" className="block italic text-accent" delay={0.08}>
-              ON THE RECORD EVERYWHERE.
+              EVERYWHERE
             </SplitReveal>
           </h2>
         </Reveal>

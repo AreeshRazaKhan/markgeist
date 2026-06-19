@@ -21,9 +21,9 @@ const PressPage = () => {
     <main className="relative">
       <PageHeader
         eyebrow="PRESS KIT"
-        title="ON THE"
-        accent="RECORD."
-        lead="Bios, talking points, and booking. Use what you need — credit Mark Geist / 13 Hours where appropriate."
+        title="PRESS, BOOKING,"
+        accent="AND MEDIA RESOURCES."
+        lead="For interviews, speaking requests, podcast appearances, and media inquiries, use the official contact channel below. Approved bios, talking points, and media assets are available on request."
       />
 
       <section className="container-x grid grid-cols-12 gap-x-8 gap-y-16 pb-32 lg:gap-x-12">

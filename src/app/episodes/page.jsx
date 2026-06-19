@@ -19,7 +19,13 @@ const EpisodesPage = () => {
         eyebrow={`01 — EPISODE ARCHIVE · ${EPISODES.length} ON FILE`}
         title="EVERY EPISODE."
         accent="UNCUT."
-        lead={`${EPISODES.length} long-form interviews. Pick a show — every link opens directly to the episode.`}
+        lead={
+          <>
+            {`${EPISODES.length} long-form interviews. Pick a show. Start with Mark “Oz” Geist’s featured long-form conversations, media appearances, and essential interviews.`}
+            <br />
+            New Oz Cast episodes and show notes will live here as the official archive grows.
+          </>
+        }
       />
 
       <section className="container-x pb-24 lg:pb-32">
