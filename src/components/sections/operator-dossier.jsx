@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+import Link from 'next/link'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -12,6 +13,7 @@ import Reveal from '@/components/motion/reveal'
 import Portrait from '@/components/motion/portrait'
 import HudTag from '@/components/motion/hud-tag'
 import TextScramble from '@/components/motion/text-scramble'
+import ArrowButton from '@/components/motion/arrow-button'
 import useGsapContext from '@/hooks/use-gsap-context'
 import useReducedMotion from '@/hooks/use-reduced-motion'
 
@@ -77,8 +79,8 @@ const OperatorDossier = () => {
           </HudTag>
           <h2 className="display-xl max-w-5xl text-balance text-[clamp(44px,6vw,104px)] leading-[0.92] text-ink">
             <ColorScrub as="span" className="block">
-              <SplitReveal className="block">A LIFETIME OF</SplitReveal>
-              <SplitReveal className="block italic text-accent" delay={0.08}>VALOR ON FILE.</SplitReveal>
+              <SplitReveal className="block">LIFETIME OF VALOR,</SplitReveal>
+              <SplitReveal className="block italic text-accent" delay={0.08}>ON THE RECORD.</SplitReveal>
             </ColorScrub>
           </h2>
         </Reveal>
@@ -129,6 +131,12 @@ const OperatorDossier = () => {
                 service dogs, retreats, and aid for contractors carrying wounds nobody filed.
               </LineReveal>
             </div>
+
+            <Reveal className="mt-10">
+              <ArrowButton as={Link} href="/about" variant="primary">
+                READ THE DOSSIER
+              </ArrowButton>
+            </Reveal>
           </div>
         </div>
       </div>

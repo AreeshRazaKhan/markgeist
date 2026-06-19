@@ -12,8 +12,21 @@ const FACTS = [
   { k: 'Operator', v: 'Annex Security Team · Benghazi' },
   { k: 'Date of action', v: 'September 11–12, 2012' },
   { k: 'Credited with', v: 'Helping save 25+ Americans' },
-  { k: 'Co-author', v: '13 Hours: The Inside Account of What Really Happened in Benghazi' },
-  { k: 'Co-founder', v: 'Shadow Warriors Project' },
+  {
+    k: 'Co-author',
+    v: (
+      <>
+        13 Hours:{' '}
+        <span className="underline decoration-accent">
+          The Inside Account of What Really Happened in Benghazi
+        </span>
+      </>
+    )
+  },
+  {
+    k: 'Co-founder',
+    v: <span className="underline decoration-accent">Shadow Warriors Project</span>
+  },
   { k: 'Recorded from', v: 'Colorado' }
 ]
 
@@ -22,9 +35,17 @@ const AboutPage = () => {
     <main className="relative">
       <PageHeader
         eyebrow="OPERATOR DOSSIER"
-        title="A LIFETIME OF"
-        accent="VALOR ON FILE."
-        lead="Operator-direct. On the record. The interviews here are long-form because the story is long."
+        title="LIFETIME OF VALOR,"
+        accent="ON THE RECORD."
+        lead={
+          <>
+            Operator-direct. No PR layer. No clipped soundbites. This is the official background
+            file on Mark &ldquo;Oz&rdquo; Geist.{' '}
+            <span className="font-medium text-ink">
+              Marine, Benghazi Annex Security Team member, author, speaker, and host of The Oz Cast.
+            </span>
+          </>
+        }
       />
 
       <section className="container-x grid grid-cols-12 gap-x-8 gap-y-12 pb-32 lg:gap-x-12">
@@ -33,26 +54,33 @@ const AboutPage = () => {
           <div className="mt-6 space-y-6 text-base text-ink">
             <p>
               Mark &ldquo;Oz&rdquo; Geist served twelve years in the U.S. Marine Corps before
-              shifting into the private security sector. On September 11–12, 2012, he was a
-              member of the Annex Security Team at the CIA outpost in Benghazi when the
-              compound came under coordinated attack. He is credited with helping save more
-              than twenty-five American lives that night.
+              moving into the private security sector.
             </p>
             <p>
-              He co-authored{' '}
-              <em className="not-italic underline decoration-accent">
-                13 Hours: The Inside Account of What Really Happened in Benghazi
-              </em>{' '}
-              — the basis for the Michael Bay film of the same name — and co-founded the{' '}
-              <em className="not-italic underline decoration-accent">Shadow Warriors Project</em>,
-              a 501(c)(3) supporting wounded contractors and their families with K9 service dogs,
-              healing retreats, and direct aid.
+              On September 11–12, 2012, Oz was part of the Annex Security Team at the CIA outpost
+              in Benghazi when the compound came under coordinated attack. He is credited with
+              helping save more than twenty-five American lives that night.
             </p>
             <p>
-              This podcast is the long-form record. Conversations Oz has chosen to do, with
-              hosts who don&apos;t cut. No PR layer. No curated soundbites. The interviews, on
-              the record.
+              He later co-authored{' '}
+              <em className="not-italic">
+                13 Hours:{' '}
+                <span className="underline decoration-accent">
+                  The Inside Account of What Really Happened in Benghazi
+                </span>
+              </em>
+              , the book that became the basis for the Michael Bay film{' '}
+              <em className="not-italic">13 Hours</em>. He also
+              co-founded{' '}
+              <em className="not-italic underline decoration-accent">Shadow Warriors Project</em>, a
+              501(c)(3) organization supporting wounded private security contractors and their
+              families through K9 service dogs, healing retreats, and direct aid.
             </p>
+            <p>
+              The Oz Cast is the long-form record: conversations about service, survival,
+              leadership, sacrifice, and the fight that continues after the headlines fade.
+            </p>
+            <p>No scripted PR layer. No curated soundbites. Just the record.</p>
           </div>
         </div>
 
