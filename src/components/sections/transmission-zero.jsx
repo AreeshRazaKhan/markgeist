@@ -107,19 +107,20 @@ const TransmissionZero = () => {
       <div className="container-x relative z-content flex flex-col items-center text-center">
         <h1 className="display-xl mx-auto max-w-5xl text-balance text-[clamp(48px,7vw,116px)] text-ink">
           <SplitReveal as="span" className="block">ONE NIGHT IN BENGHAZI.</SplitReveal>
-          <SplitReveal as="span" className="block italic text-accent" delay={0.1}>A LIFETIME OF VALOR.</SplitReveal>
+          <SplitReveal as="span" className="block italic text-accent" delay={0.1}>A LIFETIME ON THE RECORD.</SplitReveal>
         </h1>
 
         <LineReveal as="p" className="mx-auto mt-8 max-w-2xl text-pretty text-base leading-relaxed text-ink/80 lg:text-lg">
-          Marine. Annex Security Team in Benghazi. Co-author of <em className="not-italic underline decoration-accent">13 Hours</em>.
-          Co-founder of Shadow Warriors Project. The interviews, on the record.
+          Marine. Benghazi Annex Security Team. Co-author of <em className="not-italic underline decoration-accent">13 Hours</em>.
+          Co-founder of Shadow Warriors Project. Host of The Oz Cast, long-form conversations on
+          service, survival, leadership, and what comes after the fight.
         </LineReveal>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <ArrowButton as="a" href={LATEST_EPISODE.listenUrl} target="_blank" rel="noreferrer" variant="primary">
             {`PLAY · ${LATEST_EPISODE.number}`}
           </ArrowButton>
-          <ArrowButton as="a" href="#mission-logs" variant="ghost">ALL EPISODES</ArrowButton>
+          <ArrowButton as="a" href="#newsletter" variant="ghost">JOIN THE NEWSLETTER</ArrowButton>
         </div>
 
         {/* 4-tile episode strip */}
