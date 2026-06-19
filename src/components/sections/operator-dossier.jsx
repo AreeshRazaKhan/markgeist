@@ -106,7 +106,7 @@ const OperatorDossier = () => {
               I&rsquo;VE TOLD THIS STORY ENOUGH TIMES TO KNOW WHICH PARTS THE HEADLINES MISS.
             </ScrubReveal>
             <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-mute">
-              &mdash; The interviews are where the rest of it lives.
+              The interviews are where the rest of it lives.
             </p>
 
             <div className="mt-12 max-w-2xl space-y-6 text-base leading-relaxed text-ink/80 lg:text-lg">
@@ -117,9 +117,9 @@ const OperatorDossier = () => {
                 Persian Farsi language qualification.
               </LineReveal>
               <LineReveal as="p" stagger={0.06}>
-                Out of uniform: Deputy Sheriff in Teller County, Colorado &mdash; Vice/Narcotics
+                Out of uniform: Deputy Sheriff in Teller County, Colorado Vice/Narcotics
                 liaison and Crimes Against Children investigator. Chief of Police in Fowler,
-                Colorado. Bail bonds and bounty hunting on the side. Then 2004 &mdash; Iraq, with
+                Colorado. Bail bonds and bounty hunting on the side. Then 2004 Iraq, with
                 Triple Canopy on State Department detail, USIS training Iraqi SWAT, and a mentor
                 seat with Prime Minister Allawi&rsquo;s security detail.
               </LineReveal>
@@ -127,7 +127,7 @@ const OperatorDossier = () => {
                 11 September 2012, Benghazi. The Annex Security Team holds the line for thirteen
                 hours. 25+ Americans evacuated alive. Co-author of the bestseller{' '}
                 <em className="not-italic underline decoration-accent">13 Hours: The Inside Account of What Really Happened in Benghazi</em>{' '}
-                &mdash; the book that became the film. Co-founder of Shadow Warriors Project:
+                the book that became the film. Co-founder of Shadow Warriors Project:
                 service dogs, retreats, and aid for contractors carrying wounds nobody filed.
               </LineReveal>
             </div>

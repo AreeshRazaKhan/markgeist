@@ -58,7 +58,7 @@ const TailCall = () => {
             <span className="block italic text-accent pb-[0.06em]">TALK SOON.</span>
           </p>
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-mute">
-            &mdash; Mark &ldquo;Oz&rdquo; Geist · Recording from Colorado
+            Mark &ldquo;Oz&rdquo; Geist · Recording from Colorado
           </p>
         </div>
 
@@ -67,7 +67,7 @@ const TailCall = () => {
           <div className="col-span-12 lg:col-span-4">
             <Image
               src="/the-oz-cast-logo.png"
-              alt="The Oz Cast — hosted by Mark Geist"
+              alt="The Oz Cast hosted by Mark Geist"
               width={734}
               height={124}
               className="h-10 w-auto"

@@ -34,7 +34,7 @@ const NowBroadcasting = () => {
           {/* Cover art */}
           <div className="relative col-span-12 lg:col-span-5">
             <Portrait
-              alt={`${LATEST_EPISODE.number} cover art — ${LATEST_EPISODE.title}`}
+              alt={`${LATEST_EPISODE.number} cover art ${LATEST_EPISODE.title}`}
               seed={LATEST_EPISODE.id}
               ratio="square"
             />

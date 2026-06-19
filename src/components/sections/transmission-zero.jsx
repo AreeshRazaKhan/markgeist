@@ -132,7 +132,7 @@ const TransmissionZero = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="group relative block overflow-hidden border border-border transition-colors duration-300 hover:border-accent"
-                aria-label={`Play ${ep.number} — ${ep.title}`}
+                aria-label={`Play ${ep.number} ${ep.title}`}
               >
                 <Portrait alt={`${ep.number} cover art`} seed={ep.id} ratio="square" />
                 {/* hover overlay */}

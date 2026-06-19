@@ -26,10 +26,10 @@ const TopNav = () => {
       )}
     >
       <div className="container-x flex h-16 items-center justify-between">
-        <Link href="/" className="group flex items-center gap-3" aria-label="The Oz Cast — home">
+        <Link href="/" className="group flex items-center gap-3" aria-label="The Oz Cast home">
           <Image
             src="/the-oz-cast-logo.png"
-            alt="The Oz Cast — hosted by Mark Geist"
+            alt="The Oz Cast hosted by Mark Geist"
             width={734}
             height={124}
             priority

@@ -206,7 +206,7 @@ const MissionLogs = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="group block"
-                aria-label={`Play ${ep.number} — ${ep.title}`}
+                aria-label={`Play ${ep.number} ${ep.title}`}
               >
                 <div className="relative overflow-hidden">
                   <Portrait alt={`${ep.number} cover art`} seed={ep.id} ratio="square" />
