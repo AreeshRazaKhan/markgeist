@@ -79,7 +79,7 @@ const OperatorDossier = () => {
           </HudTag>
           <h2 className="display-xl max-w-5xl text-balance text-[clamp(44px,6vw,104px)] leading-[0.92] text-ink">
             <ColorScrub as="span" className="block">
-              <SplitReveal className="block">LIFETIME OF VALOR,</SplitReveal>
+              <SplitReveal className="block">A LIFETIME OF VALOR,</SplitReveal>
               <SplitReveal className="block italic text-accent" delay={0.08}>ON THE RECORD.</SplitReveal>
             </ColorScrub>
           </h2>

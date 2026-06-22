@@ -7,7 +7,7 @@ import { DISPATCHES } from '@/constants/dispatches'
 export const metadata = {
   title: 'Blog — The Oz Cast',
   description:
-    'Episode breakdowns, op-eds, and written notes from The Oz Cast — read the rundown, then go straight to the full episode.'
+    'Episode breakdowns, show notes, commentary, and written cuts from The Oz Cast. Read the key takeaways, then go deeper with the full conversation or member-only breakdowns.'
 }
 
 const formatDate = (iso) =>
@@ -22,8 +22,9 @@ const BlogPage = () => {
         accent="THE RECORD."
         lead={
           <>
-            Episode breakdowns, op-eds, and written cuts between long-form interviews. Read the
-            rundown, then go straight to the full episode.
+            Episode breakdowns, show notes, commentary, and written cuts from The Oz Cast. Read
+            the key takeaways, then go deeper with the full conversation or member-only
+            breakdowns.
             <span className="mt-4 block text-ink">
               Want the next breakdown first? Join the{' '}
               <Link

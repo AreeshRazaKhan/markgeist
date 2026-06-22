@@ -35,7 +35,7 @@ const AboutPage = () => {
     <main className="relative">
       <PageHeader
         eyebrow="OPERATOR DOSSIER"
-        title="LIFETIME OF VALOR,"
+        title="A LIFETIME OF VALOR,"
         accent="ON THE RECORD."
         lead={
           <>
@@ -65,14 +65,27 @@ const AboutPage = () => {
               He later co-authored{' '}
               <em className="not-italic">
                 13 Hours:{' '}
-                <span className="underline decoration-accent">
+                <a
+                  href="https://www.hachettebookgroup.com/titles/mitchell-zuckoff/13-hours/9781478953203/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline decoration-accent transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                >
                   The Inside Account of What Really Happened in Benghazi
-                </span>
+                </a>
               </em>
               , the book that became the basis for the Michael Bay film{' '}
               <em className="not-italic">13 Hours</em>. He also
               co-founded{' '}
-              <em className="not-italic underline decoration-accent">Shadow Warriors Project</em>, a
+              <a
+                href="https://shadowwarriorsproject.org/"
+                target="_blank"
+                rel="noreferrer"
+                className="not-italic underline decoration-accent transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              >
+                Shadow Warriors Project
+              </a>
+              , a
               501(c)(3) organization supporting wounded private security contractors and their
               families through K9 service dogs, healing retreats, and direct aid.
             </p>
