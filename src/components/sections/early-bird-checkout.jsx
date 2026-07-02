@@ -16,7 +16,7 @@ import { cn } from '@/lib/utils'
  */
 const PAYMENT_LIVE = false
 
-const EarlyBirdCheckout = ({ tiers, defaultTier }) => {
+const EarlyBirdCheckout = ({ tiers, defaultTier = '' }) => {
   const initial = tiers.find((t) => t.id === defaultTier)?.id || tiers[0].id
   const [tierId, setTierId] = useState(initial)
   const [submitting, setSubmitting] = useState(false)
@@ -219,10 +219,6 @@ EarlyBirdCheckout.propTypes = {
     })
   ).isRequired,
   defaultTier: PropTypes.string
-}
-
-EarlyBirdCheckout.defaultProps = {
-  defaultTier: ''
 }
 
 export default EarlyBirdCheckout
