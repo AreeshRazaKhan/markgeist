@@ -67,7 +67,14 @@
       "Bash(curl -s -o /dev/null -w \"picsum.photos status: %{http_code}  time: %{time_total}s\\\\n\" -L \"https://picsum.photos/seed/mark-oz-geist/800/1000\" --max-time 15)",
       "Bash(mkdir -p /c/Users/Dev/AppData/Local/Temp/claude/xlsx)",
       "Bash(unzip -o \"The Oz Cast - Website Deliverables.xlsx\" -d /c/Users/Dev/AppData/Local/Temp/claude/xlsx)",
-      "Read(//c/Users/Dev/AppData/Local/Temp/claude/**)"
+      "Read(//c/Users/Dev/AppData/Local/Temp/claude/**)",
+      "Bash(command -v pdftotext pdftoppm mutool gs)",
+      "Bash(pdftotext -layout \"/c/Users/Dev/Downloads/OzCast.pdf\" ozcast.txt)",
+      "Bash(git rm *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"http://localhost:3000/membership/checkout?tier=tier-3\" --max-time 30)",
+      "Bash(curl -s -o /dev/null -w \"http=%{http_code}  type=%{content_type}  bytes=%{size_download}\\\\n\" \"https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=8&data=https%3A%2F%2Ftheozcast.com%2Fmembership\" --max-time 20)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"http://localhost:3000/episodes/mtnpod-151\" --max-time 30)",
+      "Bash(curl -s \"http://localhost:3000/episodes/mtnpod-151\" --max-time 30)"
     ]
   }
 }
