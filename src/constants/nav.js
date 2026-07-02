@@ -1,14 +1,16 @@
 // `primary: true` links render in the lean desktop inline nav.
 // Every link (regardless of `primary`) renders in the mobile sheet + footer.
+// Note: /press is built but intentionally NOT linked at launch (spec: "built,
+// hidden" — toggles live once there is enough Ozcast press to populate it).
 export const NAV_LINKS = [
   { label: 'Episodes', href: '/episodes', primary: true },
   { label: 'Membership', href: '/membership', primary: true },
+  { label: 'Sponsor', href: '/sponsor', primary: true },
   { label: 'About Oz', href: '/about', primary: true },
-  { label: 'Guests', href: '/guests', primary: true },
+  { label: 'Guests', href: '/guests', primary: false },
   { label: 'Blog', href: '/blog', primary: true },
   { label: 'Events', href: '/events', primary: false },
   { label: 'Merch', href: '/merch', primary: false },
-  { label: 'Press', href: '/press', primary: true },
   { label: 'Contact', href: '/contact', primary: false },
   { label: 'Subscribe', href: '/subscribe', primary: false }
 ]

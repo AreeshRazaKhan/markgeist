@@ -14,7 +14,12 @@ export const EPISODES = [
     publishedAt: '2026-01-19',
     listenUrl:
       'https://podcasts.apple.com/ga/podcast/mark-geist-mortars-miracles-why-he-survived-benghazi/id1674015509?i=1000745708568',
-    spotifyUrl: 'https://open.spotify.com/episode/4nuvtJt2TqDiJQqQIM84TR'
+    spotifyUrl: 'https://open.spotify.com/episode/4nuvtJt2TqDiJQqQIM84TR',
+    guest: {
+      name: 'Dustin Diefenderfer',
+      role: 'Founder, MTNTOUGH Fitness Lab',
+      blurb: 'Backcountry-hunting fitness coach turned podcaster. Trains hunters and operators for the mountains.'
+    }
   },
   {
     id: 'srs-74',
@@ -30,7 +35,12 @@ export const EPISODES = [
     status: 'AIRED',
     publishedAt: '2023-09-25',
     youtubeId: 'Q9i_es05rWc',
-    listenUrl: 'https://youtu.be/Q9i_es05rWc'
+    listenUrl: 'https://youtu.be/Q9i_es05rWc',
+    guest: {
+      name: 'Shawn Ryan',
+      role: 'Former Navy SEAL · Host, Shawn Ryan Show',
+      blurb: 'CIA contractor turned long-form interviewer. One of the most direct hosts on the circuit.'
+    }
   },
   {
     id: 'srs-clips-anomaly',
@@ -46,7 +56,12 @@ export const EPISODES = [
     status: 'AIRED',
     publishedAt: '2024-02-11',
     youtubeId: 'Dh6f9hIQgnA',
-    listenUrl: 'https://youtu.be/Dh6f9hIQgnA'
+    listenUrl: 'https://youtu.be/Dh6f9hIQgnA',
+    guest: {
+      name: 'Shawn Ryan',
+      role: 'Former Navy SEAL · Host, Shawn Ryan Show',
+      blurb: 'CIA contractor turned long-form interviewer. One of the most direct hosts on the circuit.'
+    }
   },
   {
     id: 'mizrahi-5',
@@ -62,7 +77,12 @@ export const EPISODES = [
     status: 'AIRED',
     publishedAt: '2020-04-22',
     youtubeId: '4EjG8WyPQB0',
-    listenUrl: 'https://youtu.be/4EjG8WyPQB0'
+    listenUrl: 'https://youtu.be/4EjG8WyPQB0',
+    guest: {
+      name: 'Charles Mizrahi',
+      role: 'Investor · Host, The Charles Mizrahi Show',
+      blurb: '40-year Wall Street veteran who reads world events through a financial-analyst lens.'
+    }
   },
   {
     id: 'usafa-ncls18',
@@ -78,7 +98,12 @@ export const EPISODES = [
     status: 'AIRED',
     publishedAt: '2018-02-22',
     youtubeId: 'G97HrkJEPRQ',
-    listenUrl: 'https://youtu.be/G97HrkJEPRQ'
+    listenUrl: 'https://youtu.be/G97HrkJEPRQ',
+    guest: {
+      name: 'USAFA Cadet Corps',
+      role: 'National Character & Leadership Symposium',
+      blurb: 'Future officers of the U.S. Air Force Academy hosting the NCLS keynote address.'
+    }
   },
   {
     id: 'segovia-13h',
@@ -94,7 +119,12 @@ export const EPISODES = [
     status: 'AIRED',
     publishedAt: '2023-11-05',
     youtubeId: '1t9pDhdkK0U',
-    listenUrl: 'https://youtu.be/1t9pDhdkK0U'
+    listenUrl: 'https://youtu.be/1t9pDhdkK0U',
+    guest: {
+      name: 'Andres Segovia',
+      role: 'Host, The Andres Segovia Show',
+      blurb: 'Long-form host who gives guests the room to tell the whole story, uncut.'
+    }
   }
 ]
 

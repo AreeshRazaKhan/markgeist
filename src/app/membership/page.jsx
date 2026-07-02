@@ -2,6 +2,7 @@ import HudTag from '@/components/motion/hud-tag'
 import CornerBrackets from '@/components/motion/corner-brackets'
 import ArrowButton from '@/components/motion/arrow-button'
 import PageHeader from '@/components/nav/page-header'
+import PortalWaitlist from '@/components/sections/portal-waitlist'
 import { cn } from '@/lib/utils'
 import { MEMBERSHIP_TIERS, MEMBER_CONTENT } from '@/constants/membership'
 
@@ -20,6 +21,21 @@ const MembershipPage = () => {
         accent="THE PUBLIC FEED."
         lead="The Oz Cast stays public. Membership gives listeners deeper access: early episodes, ad-free cuts, bonus clips, after-action breakdowns, Q&A sessions, behind-the-scenes content, training discounts, and priority access to future live events."
       />
+
+      <section className="container-x pb-12">
+        <div className="flex flex-col items-start justify-between gap-4 border border-accent bg-accent/[0.06] p-6 sm:flex-row sm:items-center lg:px-8">
+          <div>
+            <HudTag color="accent">EARLY-BIRD · FOUNDING RATE</HudTag>
+            <p className="mt-3 max-w-xl text-sm text-ink">
+              First 100 members lock a founding rate before the full portal opens. Join now, get
+              onboarded the moment the Operator Circle goes live.
+            </p>
+          </div>
+          <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
+            Limited · Soft launch
+          </span>
+        </div>
+      </section>
 
       <section className="container-x grid grid-cols-1 gap-6 pb-24 md:grid-cols-3 lg:gap-8">
         {MEMBERSHIP_TIERS.map((t) => (
@@ -67,14 +83,14 @@ const MembershipPage = () => {
               variant={t.featured ? 'primary' : 'ghost'}
               className="mt-8 w-full justify-center"
             >
-              {`Join · $${t.price}`}
+              {`Claim early-bird · $${t.price}`}
             </ArrowButton>
           </article>
         ))}
       </section>
 
       <section className="container-x border-t border-border py-20 lg:py-24">
-        <div className="grid grid-cols-12 gap-x-8 gap-y-10 lg:gap-x-12">
+        <div className="flex flex-col gap-y-10 lg:grid lg:grid-cols-12 lg:gap-x-12">
           <div className="col-span-12 lg:col-span-5">
             <HudTag color="accent">WHAT MEMBERS GET</HudTag>
             <h2 className="mt-6 font-display text-3xl uppercase leading-[0.95] tracking-display text-ink lg:text-5xl">
@@ -95,6 +111,8 @@ const MembershipPage = () => {
           </ul>
         </div>
       </section>
+
+      <PortalWaitlist />
     </main>
   )
 }

@@ -13,10 +13,11 @@ const ContactPage = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault()
+    const form = e.currentTarget
     setSubmitting(true)
     try {
       await new Promise((r) => setTimeout(r, 600))
-      e.currentTarget.reset()
+      form.reset()
       toast('Received.', { description: 'You\'re on the wire. Oz reads everything.' })
     } catch (err) {
       console.error('[ContactPage]:', err)

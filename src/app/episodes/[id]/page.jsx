@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import HudTag from '@/components/motion/hud-tag'
 import Portrait from '@/components/motion/portrait'
 import { EPISODES } from '@/constants/episodes'
+import { getEpisodeSponsors } from '@/constants/sponsors'
 
 export const generateStaticParams = () => EPISODES.map((ep) => ({ id: ep.id }))
 
@@ -23,6 +24,7 @@ const EpisodeDetailPage = ({ params }) => {
   const idx = EPISODES.findIndex((e) => e.id === ep.id)
   const prev = EPISODES[idx + 1] || null
   const next = EPISODES[idx - 1] || null
+  const sponsors = getEpisodeSponsors(ep.id)
 
   return (
     <main className="container-x section-y">
@@ -105,8 +107,69 @@ const EpisodeDetailPage = ({ params }) => {
               />
             </div>
           )}
+
+          {ep.guest && (
+            <section className="mt-12 border-t border-border pt-8">
+              <HudTag color="accent">IN THIS EPISODE</HudTag>
+              <div className="mt-6 flex items-start gap-5">
+                <div className="w-24 shrink-0 sm:w-28">
+                  <Portrait
+                    alt={`${ep.guest.name} — guest portrait`}
+                    seed={`guest-${ep.guest.name}`}
+                    ratio="square"
+                  />
+                </div>
+                <div>
+                  <h2 className="font-display text-2xl uppercase tracking-display text-ink">
+                    {ep.guest.name}
+                  </h2>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-mute">
+                    {ep.guest.role}
+                  </p>
+                  <p className="mt-3 max-w-md text-sm text-mute">{ep.guest.blurb}</p>
+                </div>
+              </div>
+            </section>
+          )}
         </div>
       </article>
+
+      {sponsors.length > 0 && (
+        <section className="mt-20 border-t border-border pt-10">
+          <HudTag color="accent">EPISODE SPONSORS</HudTag>
+          <p className="mt-4 max-w-2xl text-sm text-mute">
+            Use the code at checkout — the offer is yours and it keeps the show on the air.
+          </p>
+          <ul className="mt-8 grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+            {sponsors.map((s) => (
+              <li key={s.id}>
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex h-full flex-col bg-bg p-6 transition-colors hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ring-offset-2 ring-offset-bg"
+                >
+                  <span
+                    className={`font-mono text-[10px] uppercase tracking-[0.22em] ${
+                      s.tier === 'gold' ? 'text-accent' : 'text-mute'
+                    }`}
+                  >
+                    {'// '}
+                    {s.tier} sponsor
+                  </span>
+                  <span className="mt-3 font-display text-xl uppercase tracking-display text-ink transition-colors group-hover:text-accent">
+                    {s.name}
+                  </span>
+                  <span className="mt-2 flex-1 text-sm text-mute">{s.blurb}</span>
+                  <span className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-ink">
+                    CODE <span className="text-accent">{s.code}</span> ↗
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <nav className="mt-20 grid grid-cols-1 gap-6 border-t border-border pt-10 sm:grid-cols-2">
         {prev ? (

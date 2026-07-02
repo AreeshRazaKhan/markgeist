@@ -57,7 +57,17 @@
       "PowerShell(node social-posts\\\\qa.js)",
       "PowerShell(npm run *)",
       "PowerShell(Start-Process \"http://localhost:3001/social-posts\")",
-      "PowerShell(git *)"
+      "PowerShell(git *)",
+      "WebSearch",
+      "Bash(curl -s http://localhost:3001/blog)",
+      "Bash(curl -s \"http://localhost:3001/blog\")",
+      "Bash(grep -oE 'name=\\\\\\\\?\"description\\\\\\\\?\"[^/]*')",
+      "Bash(git pull *)",
+      "Bash(git stash *)",
+      "Bash(curl -s -o /dev/null -w \"picsum.photos status: %{http_code}  time: %{time_total}s\\\\n\" -L \"https://picsum.photos/seed/mark-oz-geist/800/1000\" --max-time 15)",
+      "Bash(mkdir -p /c/Users/Dev/AppData/Local/Temp/claude/xlsx)",
+      "Bash(unzip -o \"The Oz Cast - Website Deliverables.xlsx\" -d /c/Users/Dev/AppData/Local/Temp/claude/xlsx)",
+      "Read(//c/Users/Dev/AppData/Local/Temp/claude/**)"
     ]
   }
 }
