@@ -47,23 +47,46 @@ const BlogPostPage = ({ params }) => {
         </h1>
         <p className="mt-8 text-lg text-mute">{d.excerpt}</p>
 
-        <div className="prose prose-invert mt-12 max-w-none border-t border-border pt-12 text-base text-ink">
-          <p>
-            This is the written rundown. The full story is in the episode. The post here is the
-            headline and the takeaways; the long-form is in the podcast and on the linked partner
-            sites.
-          </p>
-        </div>
+        {d.access === 'member' ? (
+          <div className="mt-12 border-t border-border pt-12">
+            <div className="border border-accent bg-accent/[0.06] p-6 lg:p-8">
+              <HudTag color="accent">MEMBER BREAKDOWN · LOCKED</HudTag>
+              <h2 className="mt-5 font-display text-2xl uppercase tracking-display text-ink lg:text-3xl">
+                This debrief is for members.
+              </h2>
+              <p className="mt-4 max-w-md text-sm text-mute">
+                The full Breakdown — the minute-by-minute after-action and Oz&apos;s notes — lives
+                inside the Operator Circle. The public feed gets the takeaways; members get the rest.
+              </p>
+              <Link
+                href="/membership"
+                className="mt-6 inline-flex items-center gap-3 border border-accent bg-accent px-5 py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-accent-foreground transition-colors hover:border-ember hover:bg-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              >
+                Unlock in the Operator Circle →
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className="prose prose-invert mt-12 max-w-none border-t border-border pt-12 text-base text-ink">
+              <p>
+                This is the written rundown. The full story is in the episode. The post here is the
+                headline and the takeaways; the long-form is in the podcast and on the linked
+                partner sites.
+              </p>
+            </div>
 
-        {d.url && (
-          <a
-            href={d.url}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-12 inline-flex items-center gap-3 border border-accent bg-accent px-5 py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-accent-foreground transition-colors hover:bg-ember hover:border-ember"
-          >
-            Read the full post ↗
-          </a>
+            {d.url && (
+              <a
+                href={d.url}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-12 inline-flex items-center gap-3 border border-accent bg-accent px-5 py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-accent-foreground transition-colors hover:bg-ember hover:border-ember"
+              >
+                Read the full post ↗
+              </a>
+            )}
+          </>
         )}
       </article>
     </main>

@@ -31,9 +31,9 @@ const MembershipPage = () => {
               onboarded the moment the Operator Circle goes live.
             </p>
           </div>
-          <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-            Limited · Soft launch
-          </span>
+          <ArrowButton as="a" href="/membership/checkout" variant="primary" className="shrink-0">
+            Reserve seat
+          </ArrowButton>
         </div>
       </section>
 
@@ -79,7 +79,7 @@ const MembershipPage = () => {
 
             <ArrowButton
               as="a"
-              href="/subscribe"
+              href={`/membership/checkout?tier=${t.id}`}
               variant={t.featured ? 'primary' : 'ghost'}
               className="mt-8 w-full justify-center"
             >

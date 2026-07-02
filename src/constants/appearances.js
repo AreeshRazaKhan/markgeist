@@ -1,6 +1,6 @@
-// Stations that have carried the signal — real shows that have hosted Oz.
-// Coordinates plot the host&apos;s broadcast city / studio HQ.
-export const GUESTS = [
+// Featured Appearances — real shows/podcasts that have hosted Oz as a guest.
+// Kept distinct from Ozcast episodes (SOW §4.5). Coordinates plot the host's studio HQ.
+export const APPEARANCES = [
   {
     name: 'Shawn Ryan Show',
     role: 'Long-form · Nashville, TN',

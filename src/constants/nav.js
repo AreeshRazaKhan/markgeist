@@ -7,7 +7,7 @@ export const NAV_LINKS = [
   { label: 'Membership', href: '/membership', primary: true },
   { label: 'Sponsor', href: '/sponsor', primary: true },
   { label: 'About Oz', href: '/about', primary: true },
-  { label: 'Guests', href: '/guests', primary: false },
+  { label: 'Appearances', href: '/appearances', primary: false },
   { label: 'Blog', href: '/blog', primary: true },
   { label: 'Events', href: '/events', primary: false },
   { label: 'Merch', href: '/merch', primary: false },

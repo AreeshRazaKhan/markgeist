@@ -1,18 +1,19 @@
 'use client'
 
 import { useRef } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import SplitReveal from '@/components/motion/split-reveal'
 import LineReveal from '@/components/motion/line-reveal'
-import OrbitBadge from '@/components/motion/orbit-badge'
 import RGBSplit from '@/components/motion/rgb-split'
-import TextScramble from '@/components/motion/text-scramble'
+import CornerBrackets from '@/components/motion/corner-brackets'
+import Magnetic from '@/components/motion/magnetic'
 import HudTag from '@/components/motion/hud-tag'
 import ArrowButton from '@/components/motion/arrow-button'
 import PlayButton from '@/components/motion/play-button'
-import Portrait from '@/components/motion/portrait'
 import useGsapContext from '@/hooks/use-gsap-context'
 import useReducedMotion from '@/hooks/use-reduced-motion'
 import { EPISODES, LATEST_EPISODE } from '@/constants/episodes'
@@ -21,20 +22,34 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
 
+// The home hero is built around the client-provided "half-robot" key image (SOW §4.1).
+// Until that asset is delivered, HERO_IMAGE stays null and an on-brand placeholder renders
+// in the exact same slot. To swap in the final art: drop the file in /public and set
+// HERO_IMAGE to its path, e.g. '/hero-half-robot.png'. No other change is needed.
+const HERO_IMAGE = null
+const HERO_IMAGE_PLACEHOLDER = 'https://picsum.photos/seed/mark-oz-geist-half-robot/1000/1250'
+
 const TILES = EPISODES.slice(0, 4)
 
 const TransmissionZero = () => {
   const ref = useRef(null)
-  const wordmarkRef = useRef(null)
   const reduced = useReducedMotion()
 
   useGsapContext(
     () => {
       if (reduced) return
 
-      // Hero divider line draw
+      // Half-robot key image wipes up on arrival
+      gsap.from('[data-hero-figure]', {
+        clipPath: 'inset(0 0 100% 0)',
+        opacity: 0,
+        duration: 1.3,
+        delay: 0.15,
+        ease: 'expo.out'
+      })
+
       const lines = ref.current?.querySelectorAll('[data-hero-line]')
-      if (lines && lines.length) {
+      if (lines?.length) {
         gsap.fromTo(
           lines,
           { scaleX: 0 },
@@ -42,7 +57,6 @@ const TransmissionZero = () => {
         )
       }
 
-      // Tile strip stagger
       gsap.from('[data-tile]', {
         opacity: 0,
         y: 32,
@@ -75,6 +89,8 @@ const TransmissionZero = () => {
     ref
   )
 
+  const heroSrc = HERO_IMAGE || HERO_IMAGE_PLACEHOLDER
+
   return (
     <section
       id="transmission"
@@ -85,13 +101,8 @@ const TransmissionZero = () => {
       <div aria-hidden className="absolute inset-0 z-canvas accent-wash" />
       <div aria-hidden className="absolute inset-0 z-canvas scanlines opacity-50" />
 
-      {/* Orbit badge — vertical-middle left, like Cunnet */}
-      <div className="pointer-events-none absolute left-4 top-32 z-overlay text-ink lg:left-8 lg:top-1/3">
-        <OrbitBadge text="THE OZ CAST · HOSTED BY MARK GEIST · 2026" size={140} duration={32} />
-      </div>
-
       {/* Top corner HUD strip */}
-      <div className="container-x relative z-content flex items-center justify-between gap-4 pb-12">
+      <div className="container-x relative z-content flex items-center justify-between gap-4 pb-10">
         <div className="flex items-center gap-3">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping bg-live opacity-75" />
@@ -103,50 +114,99 @@ const TransmissionZero = () => {
         <HudTag color="mute" className="hidden md:inline">{LATEST_EPISODE.recordedAt}</HudTag>
       </div>
 
-      {/* Centered headline */}
-      <div className="container-x relative z-content flex flex-col items-center text-center">
-        <h1 className="display-xl mx-auto max-w-5xl text-balance text-[clamp(48px,7vw,116px)] text-ink">
-          <SplitReveal as="span" className="block">ONE NIGHT IN BENGHAZI.</SplitReveal>
-          <SplitReveal as="span" className="block italic text-accent" delay={0.1}>A LIFETIME ON THE RECORD.</SplitReveal>
-        </h1>
+      {/* Image-forward hero — the half-robot key image anchors the right, copy + primary play left */}
+      <div className="container-x relative z-content grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
+        <div className="lg:col-span-7">
+          <h1 className="display-xl max-w-3xl text-balance text-[clamp(44px,6.4vw,104px)] text-ink">
+            <SplitReveal as="span" className="block">ONE NIGHT IN BENGHAZI.</SplitReveal>
+            <SplitReveal as="span" className="block italic text-accent" delay={0.1}>A LIFETIME ON THE RECORD.</SplitReveal>
+          </h1>
 
-        <LineReveal as="p" className="mx-auto mt-8 max-w-2xl text-pretty text-base leading-relaxed text-ink/80 lg:text-lg">
-          Marine. Benghazi Annex Security Team. Co-author of <em className="not-italic underline decoration-accent">13 Hours</em>.
-          Co-founder of Shadow Warriors Project. Host of The Oz Cast, long-form conversations on
-          service, survival, leadership, and what comes after the fight.
-        </LineReveal>
+          <LineReveal as="p" className="mt-8 max-w-xl text-pretty text-base leading-relaxed text-ink/80 lg:text-lg">
+            Marine. Benghazi Annex Security Team. Co-author of <em className="not-italic underline decoration-accent">13 Hours</em>.
+            Co-founder of Shadow Warriors Project. Host of The Oz Cast, long-form conversations on
+            service, survival, leadership, and what comes after the fight.
+          </LineReveal>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-          <ArrowButton as="a" href={LATEST_EPISODE.listenUrl} target="_blank" rel="noreferrer" variant="primary">
-            {`PLAY · ${LATEST_EPISODE.number}`}
-          </ArrowButton>
-          <ArrowButton as="a" href="#newsletter" variant="ghost">JOIN THE NEWSLETTER</ArrowButton>
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <Magnetic>
+              <ArrowButton as="a" href={LATEST_EPISODE.listenUrl} target="_blank" rel="noreferrer" variant="primary">
+                {`PLAY · ${LATEST_EPISODE.number}`}
+              </ArrowButton>
+            </Magnetic>
+            <ArrowButton as={Link} href="#newsletter" variant="ghost">JOIN THE NEWSLETTER</ArrowButton>
+          </div>
         </div>
 
-        {/* 4-tile episode strip */}
-        <ul className="mt-16 grid w-full max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-5">
+        {/* Half-robot key image */}
+        <figure data-hero-figure className="relative lg:col-span-5">
+          <div className="relative border border-border">
+            <CornerBrackets color="accent" />
+            <div className="relative aspect-[4/5] overflow-hidden bg-surface">
+              <Image
+                src={heroSrc}
+                alt='Mark "Oz" Geist'
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="object-cover grayscale-[0.2] contrast-[1.05]"
+              />
+              <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-bg via-bg/10 to-transparent" />
+              <div aria-hidden className="absolute inset-0 bg-gradient-to-tr from-accent/15 via-transparent to-transparent mix-blend-multiply" />
+              <div aria-hidden className="absolute inset-0 grain pointer-events-none" />
+            </div>
+            <figcaption className="absolute bottom-3 left-3 z-overlay">
+              <HudTag color="accent">MARK &quot;OZ&quot; GEIST</HudTag>
+            </figcaption>
+            {!HERO_IMAGE && (
+              <span
+                aria-hidden
+                className="absolute right-3 top-3 z-overlay bg-bg/85 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.22em] text-mute"
+              >
+                {'// KEY ART PENDING'}
+              </span>
+            )}
+          </div>
+        </figure>
+      </div>
+
+      {/* Recent-episodes strip */}
+      <div className="container-x relative z-content mt-16">
+        <div className="mb-5 flex items-center justify-between border-b border-border pb-4">
+          <HudTag color="mute">RECENT EPISODES</HudTag>
+          <ArrowButton as={Link} href="/episodes" variant="ghost" className="px-3 py-2">
+            ALL EPISODES
+          </ArrowButton>
+        </div>
+        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-5">
           {TILES.map((ep) => (
             <li key={ep.id} data-tile>
-              <a
-                href={ep.listenUrl}
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                href={`/episodes/${ep.id}`}
                 className="group relative block overflow-hidden border border-border transition-colors duration-300 hover:border-accent"
                 aria-label={`Play ${ep.number} ${ep.title}`}
               >
-                <Portrait alt={`${ep.number} cover art`} seed={ep.id} ratio="square" />
-                {/* hover overlay */}
+                <div className="relative aspect-square overflow-hidden bg-surface">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`https://picsum.photos/seed/${ep.id}/600/600`}
+                    alt={`${ep.number} cover art`}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover grayscale-[0.25] contrast-[1.05]"
+                  />
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-tr from-accent/20 via-bg/10 to-bg/60 mix-blend-multiply" />
+                  <div aria-hidden className="absolute inset-0 grain pointer-events-none" />
+                </div>
                 <span aria-hidden className="absolute inset-0 flex items-center justify-center bg-bg/60 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
                   <PlayButton as="span" size="md" label="" />
                 </span>
-                {/* corner tag */}
                 <span className="absolute left-2 top-2 bg-bg/85 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.22em] text-ink">
                   {ep.number}
                 </span>
                 <span className="absolute bottom-2 right-2 bg-bg/85 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.22em] text-mute">
                   {ep.duration}
                 </span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

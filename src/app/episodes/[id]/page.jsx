@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 
 import HudTag from '@/components/motion/hud-tag'
 import Portrait from '@/components/motion/portrait'
+import EpisodeEndCard from '@/components/sections/episode-end-card'
 import { EPISODES } from '@/constants/episodes'
 import { getEpisodeSponsors } from '@/constants/sponsors'
 
@@ -170,6 +171,8 @@ const EpisodeDetailPage = ({ params }) => {
           </ul>
         </section>
       )}
+
+      <EpisodeEndCard />
 
       <nav className="mt-20 grid grid-cols-1 gap-6 border-t border-border pt-10 sm:grid-cols-2">
         {prev ? (

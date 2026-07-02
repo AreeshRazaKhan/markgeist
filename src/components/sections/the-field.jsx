@@ -8,7 +8,7 @@ import HudTag from '@/components/motion/hud-tag'
 import Portrait from '@/components/motion/portrait'
 import useGsapContext from '@/hooks/use-gsap-context'
 import useReducedMotion from '@/hooks/use-reduced-motion'
-import { GUESTS } from '@/constants/guests'
+import { APPEARANCES } from '@/constants/appearances'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -24,7 +24,7 @@ const TheField = () => {
   const listenRef = useRef(null)
   const progressRef = useRef(null)
   const reduced = useReducedMotion()
-  const total = GUESTS.length
+  const total = APPEARANCES.length
 
   useGsapContext(
     () => {
@@ -42,7 +42,7 @@ const TheField = () => {
       const swapActive = (idx) => {
         if (idx === prevIdx) return
         prevIdx = idx
-        const g = GUESTS[idx]
+        const g = APPEARANCES[idx]
         if (counterRef.current) counterRef.current.textContent = String(idx + 1).padStart(2, '0')
         if (nameRef.current) nameRef.current.textContent = g.name
         if (roleRef.current) roleRef.current.textContent = g.role
@@ -99,7 +99,7 @@ const TheField = () => {
         {/* LEFT — fixed heading + dynamic active info */}
         <div className="px-6 pb-12 pt-28 lg:flex-shrink-0 lg:px-12 lg:pb-0 lg:pt-0 lg:w-[44vw]">
           <p className="font-mono text-xs uppercase tracking-[0.22em] text-accent">
-            FIELD · {GUESTS.length} STATIONS
+            FIELD · {APPEARANCES.length} STATIONS
           </p>
           <h2
             className="display-xl mt-4 text-balance text-ink"
@@ -113,7 +113,7 @@ const TheField = () => {
             <span className="block italic text-accent">HOSTED OZ.</span>
           </h2>
           <p className="mt-6 max-w-md text-mute">
-            {GUESTS.length} long-form interviews on the record. Pick a show to listen. Every link
+            {APPEARANCES.length} long-form interviews on the record. Pick a show to listen. Every link
             opens directly to the episode.
           </p>
 
@@ -130,17 +130,17 @@ const TheField = () => {
               className="font-display mt-4 uppercase leading-[0.92] tracking-display text-ink"
               style={{ fontSize: 'clamp(28px, 2.6vw, 48px)' }}
             >
-              {GUESTS[0].name}
+              {APPEARANCES[0].name}
             </h3>
             <p
               ref={roleRef}
               className="mt-2 font-mono text-xs uppercase tracking-[0.22em] text-accent"
             >
-              {GUESTS[0].role}
+              {APPEARANCES[0].role}
             </p>
             <a
               ref={listenRef}
-              href={GUESTS[0].url}
+              href={APPEARANCES[0].url}
               target="_blank"
               rel="noreferrer"
               className="group mt-6 inline-flex items-center gap-3 border border-border px-5 py-3 font-mono text-xs uppercase tracking-[0.22em] text-ink transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
@@ -160,7 +160,7 @@ const TheField = () => {
             ref={trackRef}
             className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-10 lg:pr-12 lg:will-change-transform"
           >
-            {GUESTS.map((g, i) => (
+            {APPEARANCES.map((g, i) => (
               <article
                 key={g.name}
                 data-slide
