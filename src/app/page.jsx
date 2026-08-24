@@ -5,12 +5,18 @@ import MembershipPromo from '@/components/sections/membership-promo'
 import OperatorDossier from '@/components/sections/operator-dossier'
 import SocialProof from '@/components/sections/social-proof'
 import MissionLogs from '@/components/sections/mission-logs'
+import SitePaused from '@/components/sections/site-paused'
 import TheField from '@/components/sections/the-field'
 import IntelFeed from '@/components/sections/intel-feed'
 import OpenComms from '@/components/sections/open-comms'
 import ZoomThrough from '@/components/motion/zoom-through'
 
+// Site is temporarily paused. Set back to false to restore the live homepage.
+const SITE_PAUSED = true
+
 const HomePage = () => {
+  if (SITE_PAUSED) return <SitePaused />
+
   return (
     <main className="relative">
       <TransmissionZero />
